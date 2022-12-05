@@ -5,7 +5,7 @@ import 'package:read_only_dashboard/pb/master/master_service.pb.dart'
 
 import 'package:read_only_dashboard/pb/client.dart';
 
-import '../entity/regulation.dart';
+import '../domain/entity/regulation.dart';
 
 class RegulationProviderError {}
 
@@ -15,12 +15,12 @@ class RegulationDataProvider {
   Future<void> deleteRegulation(int id) async {
     Int64 id64 = Int64(id);
     final request = master_grpc_service.DeleteRegulationRequest(iD: id64);
-    await masterClient.stub.deleteRegulation(request);
+    await masterClient.regulationStub.delete(request);
   }
 
   Future<List<Regulation>?> getAllRegulations() async {
     final resp =
-        await masterClient.stub.getAllRegulations(master_grpc_service.Empty());
+        await masterClient.regulationStub.getAll(master_grpc_service.Empty());
     List<Regulation> result = [];
     if (resp.regulations.isEmpty) {
       return null;

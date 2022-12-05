@@ -1,4 +1,4 @@
-import 'package:read_only_dashboard/domain/data_providers/regulation.dart';
+import 'package:read_only_dashboard/adapters/regulation.dart';
 import 'package:read_only_dashboard/domain/entity/regulation.dart';
 
 class RegulationService {
