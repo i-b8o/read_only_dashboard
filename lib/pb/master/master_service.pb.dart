@@ -3,7 +3,7 @@
 //  source: master/master_service.proto
 //
 // @dart = 2.12
-// ignore_for_file: annotate_overrides,camel_case_types,unnecessary_const,non_constant_identifier_names,library_prefixes,unused_import,unused_shown_name,return_of_invalid_type,unnecessary_this,prefer_final_fields
+// ignore_for_file: annotate_overrides,camel_case_types,constant_identifier_names,directives_ordering,library_prefixes,non_constant_identifier_names,prefer_final_fields,return_of_invalid_type,unnecessary_const,unnecessary_import,unnecessary_this,unused_import,unused_shown_name
 
 import 'dart:core' as $core;
 
@@ -1267,47 +1267,57 @@ class UpdateParagraphRequest extends $pb.GeneratedMessage {
   void clearContent() => clearField(2);
 }
 
-class UpdateAbsentRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'UpdateAbsentRequest', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'master.v1'), createEmptyInstance: create)
+class MasterAbsent extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'MasterAbsent', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'master.v1'), createEmptyInstance: create)
     ..a<$fixnum.Int64>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'ID', $pb.PbFieldType.OU6, protoName: 'ID', defaultOrMaker: $fixnum.Int64.ZERO)
-    ..aOB(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'done')
+    ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'Pseudo', protoName: 'Pseudo')
+    ..aOB(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'Done', protoName: 'Done')
+    ..a<$fixnum.Int64>(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'ParagraphId', $pb.PbFieldType.OU6, protoName: 'Paragraph_id', defaultOrMaker: $fixnum.Int64.ZERO)
     ..hasRequiredFields = false
   ;
 
-  UpdateAbsentRequest._() : super();
-  factory UpdateAbsentRequest({
+  MasterAbsent._() : super();
+  factory MasterAbsent({
     $fixnum.Int64? iD,
+    $core.String? pseudo,
     $core.bool? done,
+    $fixnum.Int64? paragraphId,
   }) {
     final _result = create();
     if (iD != null) {
       _result.iD = iD;
     }
+    if (pseudo != null) {
+      _result.pseudo = pseudo;
+    }
     if (done != null) {
       _result.done = done;
     }
+    if (paragraphId != null) {
+      _result.paragraphId = paragraphId;
+    }
     return _result;
   }
-  factory UpdateAbsentRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory UpdateAbsentRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  factory MasterAbsent.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory MasterAbsent.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
   'Will be removed in next major version')
-  UpdateAbsentRequest clone() => UpdateAbsentRequest()..mergeFromMessage(this);
+  MasterAbsent clone() => MasterAbsent()..mergeFromMessage(this);
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  UpdateAbsentRequest copyWith(void Function(UpdateAbsentRequest) updates) => super.copyWith((message) => updates(message as UpdateAbsentRequest)) as UpdateAbsentRequest; // ignore: deprecated_member_use
+  MasterAbsent copyWith(void Function(MasterAbsent) updates) => super.copyWith((message) => updates(message as MasterAbsent)) as MasterAbsent; // ignore: deprecated_member_use
   $pb.BuilderInfo get info_ => _i;
   @$core.pragma('dart2js:noInline')
-  static UpdateAbsentRequest create() => UpdateAbsentRequest._();
-  UpdateAbsentRequest createEmptyInstance() => create();
-  static $pb.PbList<UpdateAbsentRequest> createRepeated() => $pb.PbList<UpdateAbsentRequest>();
+  static MasterAbsent create() => MasterAbsent._();
+  MasterAbsent createEmptyInstance() => create();
+  static $pb.PbList<MasterAbsent> createRepeated() => $pb.PbList<MasterAbsent>();
   @$core.pragma('dart2js:noInline')
-  static UpdateAbsentRequest getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<UpdateAbsentRequest>(create);
-  static UpdateAbsentRequest? _defaultInstance;
+  static MasterAbsent getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<MasterAbsent>(create);
+  static MasterAbsent? _defaultInstance;
 
   @$pb.TagNumber(1)
   $fixnum.Int64 get iD => $_getI64(0);
@@ -1319,12 +1329,71 @@ class UpdateAbsentRequest extends $pb.GeneratedMessage {
   void clearID() => clearField(1);
 
   @$pb.TagNumber(2)
-  $core.bool get done => $_getBF(1);
+  $core.String get pseudo => $_getSZ(1);
   @$pb.TagNumber(2)
-  set done($core.bool v) { $_setBool(1, v); }
+  set pseudo($core.String v) { $_setString(1, v); }
   @$pb.TagNumber(2)
-  $core.bool hasDone() => $_has(1);
+  $core.bool hasPseudo() => $_has(1);
   @$pb.TagNumber(2)
-  void clearDone() => clearField(2);
+  void clearPseudo() => clearField(2);
+
+  @$pb.TagNumber(3)
+  $core.bool get done => $_getBF(2);
+  @$pb.TagNumber(3)
+  set done($core.bool v) { $_setBool(2, v); }
+  @$pb.TagNumber(3)
+  $core.bool hasDone() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearDone() => clearField(3);
+
+  @$pb.TagNumber(4)
+  $fixnum.Int64 get paragraphId => $_getI64(3);
+  @$pb.TagNumber(4)
+  set paragraphId($fixnum.Int64 v) { $_setInt64(3, v); }
+  @$pb.TagNumber(4)
+  $core.bool hasParagraphId() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearParagraphId() => clearField(4);
+}
+
+class GetAbsentsResponse extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'GetAbsentsResponse', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'master.v1'), createEmptyInstance: create)
+    ..pc<MasterAbsent>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'Absents', $pb.PbFieldType.PM, protoName: 'Absents', subBuilder: MasterAbsent.create)
+    ..hasRequiredFields = false
+  ;
+
+  GetAbsentsResponse._() : super();
+  factory GetAbsentsResponse({
+    $core.Iterable<MasterAbsent>? absents,
+  }) {
+    final _result = create();
+    if (absents != null) {
+      _result.absents.addAll(absents);
+    }
+    return _result;
+  }
+  factory GetAbsentsResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory GetAbsentsResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  GetAbsentsResponse clone() => GetAbsentsResponse()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  GetAbsentsResponse copyWith(void Function(GetAbsentsResponse) updates) => super.copyWith((message) => updates(message as GetAbsentsResponse)) as GetAbsentsResponse; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static GetAbsentsResponse create() => GetAbsentsResponse._();
+  GetAbsentsResponse createEmptyInstance() => create();
+  static $pb.PbList<GetAbsentsResponse> createRepeated() => $pb.PbList<GetAbsentsResponse>();
+  @$core.pragma('dart2js:noInline')
+  static GetAbsentsResponse getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<GetAbsentsResponse>(create);
+  static GetAbsentsResponse? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.List<MasterAbsent> get absents => $_getList(0);
 }
 

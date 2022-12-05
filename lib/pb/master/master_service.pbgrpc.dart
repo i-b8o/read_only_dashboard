@@ -3,7 +3,7 @@
 //  source: master/master_service.proto
 //
 // @dart = 2.12
-// ignore_for_file: annotate_overrides,camel_case_types,unnecessary_const,non_constant_identifier_names,library_prefixes,unused_import,unused_shown_name,return_of_invalid_type,unnecessary_this,prefer_final_fields
+// ignore_for_file: annotate_overrides,camel_case_types,constant_identifier_names,directives_ordering,library_prefixes,non_constant_identifier_names,prefer_final_fields,return_of_invalid_type,unnecessary_const,unnecessary_import,unnecessary_this,unused_import,unused_shown_name
 
 import 'dart:async' as $async;
 
@@ -37,11 +37,12 @@ class MasterRegulationGRPCClient extends $grpc.Client {
           ($0.UpdateLinksRequest value) => value.writeToBuffer(),
           ($core.List<$core.int> value) =>
               $0.UpdateLinksResponse.fromBuffer(value));
-  static final _$updateAbsent =
-      $grpc.ClientMethod<$0.UpdateAbsentRequest, $0.Empty>(
-          '/master.v1.MasterRegulationGRPC/UpdateAbsent',
-          ($0.UpdateAbsentRequest value) => value.writeToBuffer(),
-          ($core.List<$core.int> value) => $0.Empty.fromBuffer(value));
+  static final _$getAbsents =
+      $grpc.ClientMethod<$0.Empty, $0.GetAbsentsResponse>(
+          '/master.v1.MasterRegulationGRPC/GetAbsents',
+          ($0.Empty value) => value.writeToBuffer(),
+          ($core.List<$core.int> value) =>
+              $0.GetAbsentsResponse.fromBuffer(value));
 
   MasterRegulationGRPCClient($grpc.ClientChannel channel,
       {$grpc.CallOptions? options,
@@ -70,9 +71,9 @@ class MasterRegulationGRPCClient extends $grpc.Client {
     return $createUnaryCall(_$updateLinks, request, options: options);
   }
 
-  $grpc.ResponseFuture<$0.Empty> updateAbsent($0.UpdateAbsentRequest request,
+  $grpc.ResponseFuture<$0.GetAbsentsResponse> getAbsents($0.Empty request,
       {$grpc.CallOptions? options}) {
-    return $createUnaryCall(_$updateAbsent, request, options: options);
+    return $createUnaryCall(_$getAbsents, request, options: options);
   }
 }
 
@@ -113,14 +114,13 @@ abstract class MasterRegulationGRPCServiceBase extends $grpc.Service {
             ($core.List<$core.int> value) =>
                 $0.UpdateLinksRequest.fromBuffer(value),
             ($0.UpdateLinksResponse value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$0.UpdateAbsentRequest, $0.Empty>(
-        'UpdateAbsent',
-        updateAbsent_Pre,
+    $addMethod($grpc.ServiceMethod<$0.Empty, $0.GetAbsentsResponse>(
+        'GetAbsents',
+        getAbsents_Pre,
         false,
         false,
-        ($core.List<$core.int> value) =>
-            $0.UpdateAbsentRequest.fromBuffer(value),
-        ($0.Empty value) => value.writeToBuffer()));
+        ($core.List<$core.int> value) => $0.Empty.fromBuffer(value),
+        ($0.GetAbsentsResponse value) => value.writeToBuffer()));
   }
 
   $async.Future<$0.CreateRegulationResponse> create_Pre($grpc.ServiceCall call,
@@ -143,9 +143,9 @@ abstract class MasterRegulationGRPCServiceBase extends $grpc.Service {
     return updateLinks(call, await request);
   }
 
-  $async.Future<$0.Empty> updateAbsent_Pre($grpc.ServiceCall call,
-      $async.Future<$0.UpdateAbsentRequest> request) async {
-    return updateAbsent(call, await request);
+  $async.Future<$0.GetAbsentsResponse> getAbsents_Pre(
+      $grpc.ServiceCall call, $async.Future<$0.Empty> request) async {
+    return getAbsents(call, await request);
   }
 
   $async.Future<$0.CreateRegulationResponse> create(
@@ -156,8 +156,8 @@ abstract class MasterRegulationGRPCServiceBase extends $grpc.Service {
       $grpc.ServiceCall call, $0.DeleteRegulationRequest request);
   $async.Future<$0.UpdateLinksResponse> updateLinks(
       $grpc.ServiceCall call, $0.UpdateLinksRequest request);
-  $async.Future<$0.Empty> updateAbsent(
-      $grpc.ServiceCall call, $0.UpdateAbsentRequest request);
+  $async.Future<$0.GetAbsentsResponse> getAbsents(
+      $grpc.ServiceCall call, $0.Empty request);
 }
 
 class MasterChapterGRPCClient extends $grpc.Client {

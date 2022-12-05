@@ -3,7 +3,7 @@
 //  source: master/master_service.proto
 //
 // @dart = 2.12
-// ignore_for_file: annotate_overrides,camel_case_types,unnecessary_const,non_constant_identifier_names,library_prefixes,unused_import,unused_shown_name,return_of_invalid_type,unnecessary_this,prefer_final_fields,deprecated_member_use_from_same_package
+// ignore_for_file: annotate_overrides,camel_case_types,constant_identifier_names,deprecated_member_use_from_same_package,directives_ordering,library_prefixes,non_constant_identifier_names,prefer_final_fields,return_of_invalid_type,unnecessary_const,unnecessary_import,unnecessary_this,unused_import,unused_shown_name
 
 import 'dart:core' as $core;
 import 'dart:convert' as $convert;
@@ -224,14 +224,26 @@ const UpdateParagraphRequest$json = const {
 
 /// Descriptor for `UpdateParagraphRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List updateParagraphRequestDescriptor = $convert.base64Decode('ChZVcGRhdGVQYXJhZ3JhcGhSZXF1ZXN0Eg4KAklEGAEgASgEUgJJRBIYCgdDb250ZW50GAIgASgJUgdDb250ZW50');
-@$core.Deprecated('Use updateAbsentRequestDescriptor instead')
-const UpdateAbsentRequest$json = const {
-  '1': 'UpdateAbsentRequest',
+@$core.Deprecated('Use masterAbsentDescriptor instead')
+const MasterAbsent$json = const {
+  '1': 'MasterAbsent',
   '2': const [
     const {'1': 'ID', '3': 1, '4': 1, '5': 4, '10': 'ID'},
-    const {'1': 'done', '3': 2, '4': 1, '5': 8, '10': 'done'},
+    const {'1': 'Pseudo', '3': 2, '4': 1, '5': 9, '10': 'Pseudo'},
+    const {'1': 'Done', '3': 3, '4': 1, '5': 8, '10': 'Done'},
+    const {'1': 'Paragraph_id', '3': 4, '4': 1, '5': 4, '10': 'ParagraphId'},
   ],
 };
 
-/// Descriptor for `UpdateAbsentRequest`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List updateAbsentRequestDescriptor = $convert.base64Decode('ChNVcGRhdGVBYnNlbnRSZXF1ZXN0Eg4KAklEGAEgASgEUgJJRBISCgRkb25lGAIgASgIUgRkb25l');
+/// Descriptor for `MasterAbsent`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List masterAbsentDescriptor = $convert.base64Decode('CgxNYXN0ZXJBYnNlbnQSDgoCSUQYASABKARSAklEEhYKBlBzZXVkbxgCIAEoCVIGUHNldWRvEhIKBERvbmUYAyABKAhSBERvbmUSIQoMUGFyYWdyYXBoX2lkGAQgASgEUgtQYXJhZ3JhcGhJZA==');
+@$core.Deprecated('Use getAbsentsResponseDescriptor instead')
+const GetAbsentsResponse$json = const {
+  '1': 'GetAbsentsResponse',
+  '2': const [
+    const {'1': 'Absents', '3': 1, '4': 3, '5': 11, '6': '.master.v1.MasterAbsent', '10': 'Absents'},
+  ],
+};
+
+/// Descriptor for `GetAbsentsResponse`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List getAbsentsResponseDescriptor = $convert.base64Decode('ChJHZXRBYnNlbnRzUmVzcG9uc2USMQoHQWJzZW50cxgBIAMoCzIXLm1hc3Rlci52MS5NYXN0ZXJBYnNlbnRSB0Fic2VudHM=');
