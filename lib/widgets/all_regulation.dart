@@ -59,27 +59,25 @@ class AllRegulationsWidget extends StatelessWidget {
     );
   }
 
-  @override
-  Widget build(BuildContext context) {
-    final model = context.read<_ViewModel>();
+  Widget buildContent(BuildContext context){
+final model = context.read<_ViewModel>();
 
     final allRegState = context
         .select((_ViewModel value) => value.state.allRegulationWidgetState);
     Widget content = allRegState == _ViewModelAllRegulationWidgetState.load
         ? const CircularProgressIndicator()
-        : Scaffold(
-            floatingActionButton: FloatingActionButton(
-              onPressed: model.updateState,
-              child: const Icon(Icons.update),
-            ),
-            body: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: const [
-                _DataTable(),
-              ],
-            ),
-          );
-    return content;
+        : Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: const [
+            _DataTable(),
+          ],
+        );
+          return content;
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return buildContent(context);
   }
 }
 

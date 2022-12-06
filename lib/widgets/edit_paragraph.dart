@@ -5,8 +5,6 @@ class EditParagraphWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Text('EditParagraphWidget'),
-    );
+    return const Text('EditParagraphWidget');
   }
 }
