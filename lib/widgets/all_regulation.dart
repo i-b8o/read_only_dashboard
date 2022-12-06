@@ -60,19 +60,21 @@ class AllRegulationsWidget extends StatelessWidget {
   }
 
   Widget buildContent(BuildContext context){
-final model = context.read<_ViewModel>();
-
+    final model = context.read<_ViewModel>();
     final allRegState = context
         .select((_ViewModel value) => value.state.allRegulationWidgetState);
     Widget content = allRegState == _ViewModelAllRegulationWidgetState.load
         ? const CircularProgressIndicator()
-        : Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: const [
-            _DataTable(),
-          ],
+        : Stack(
+          children: [Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: const [
+              _DataTable(),
+            ],
+        ), Positioned(child: IconButton(icon: Icon(Icons.update),onPressed: model.updateState))
+        ]
         );
-          return content;
+        return content;
   }
 
   @override
