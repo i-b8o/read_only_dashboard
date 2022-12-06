@@ -13,16 +13,14 @@ class _ViewModelState {
   _ViewModelContentState get viewModelContentState => _viewModelContentState;
 }
 
-
 class _ViewModel extends ChangeNotifier {
   _ViewModelState _state = _ViewModelState(_ViewModelContentState.regulations);
   _ViewModelState get state => _state;
-  
+
   void changeContent(_ViewModelContentState c) {
     _state = _ViewModelState(c);
     notifyListeners();
   }
-
 }
 
 class HomePage extends StatelessWidget {
@@ -33,9 +31,10 @@ class HomePage extends StatelessWidget {
       child: const HomePage(),
     );
   }
-  Widget? buildContent(BuildContext context){
+
+  Widget? buildContent(BuildContext context) {
     final model = context.watch<_ViewModel>();
-    switch (model.state.viewModelContentState){
+    switch (model.state.viewModelContentState) {
       case _ViewModelContentState.absents:
         return const Absent();
       case _ViewModelContentState.exit:
@@ -50,13 +49,15 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Widget content = buildContent(context) ?? const CircularProgressIndicator();
-    return Scaffold(body: Row(
+    return Scaffold(
+        body: Row(
       children: [
         Container(
           height: MediaQuery.of(context).size.height,
-          color: Colors.lightGreenAccent,
+          decoration: const BoxDecoration(
+              border: Border(right: BorderSide(color: Colors.blueAccent))),
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal:  8.0, vertical: 30),
+            padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 30),
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: const [
@@ -78,13 +79,15 @@ class _RegulationsBtnWidget extends StatelessWidget {
     Key? key,
   }) : super(key: key);
 
-  void onPressed(BuildContext context){
+  void onPressed(BuildContext context) {
     final model = context.read<_ViewModel>();
     model.changeContent(_ViewModelContentState.regulations);
   }
+
   @override
   Widget build(BuildContext context) {
-    return TextButton(onPressed: () => onPressed(context), child: const Text("Правила"));
+    return TextButton(
+        onPressed: () => onPressed(context), child: const Text("Правила"));
   }
 }
 
@@ -93,29 +96,31 @@ class _AbsentsBtnWidget extends StatelessWidget {
     Key? key,
   }) : super(key: key);
 
-  void onPressed(BuildContext context){
+  void onPressed(BuildContext context) {
     final model = context.read<_ViewModel>();
     model.changeContent(_ViewModelContentState.absents);
   }
 
   @override
   Widget build(BuildContext context) {
-    return TextButton(onPressed: () => onPressed(context), child: const Text("Правила"));
+    return TextButton(
+        onPressed: () => onPressed(context), child: const Text("Новые"));
   }
 }
-
 
 class _ExitBtnWidget extends StatelessWidget {
   const _ExitBtnWidget({
     Key? key,
   }) : super(key: key);
 
-  void onPressed(BuildContext context){
+  void onPressed(BuildContext context) {
     final model = context.read<_ViewModel>();
     model.changeContent(_ViewModelContentState.exit);
   }
+
   @override
   Widget build(BuildContext context) {
-    return TextButton(onPressed: () => onPressed(context), child: const Text("Выход"));
+    return TextButton(
+        onPressed: () => onPressed(context), child: const Text("Выход"));
   }
 }

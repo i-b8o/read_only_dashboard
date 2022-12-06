@@ -4,19 +4,9 @@ import 'package:provider/provider.dart';
 import 'package:read_only_dashboard/domain/entity/regulation.dart';
 import 'package:read_only_dashboard/domain/services/regulation.dart';
 
-enum _ViewModelAllRegulationWidgetState { done, load }
-
 class _ViewModelState {
   final List<Regulation>? regulations;
-  bool loading = false;
   _ViewModelState({this.regulations});
-
-  _ViewModelAllRegulationWidgetState get allRegulationWidgetState {
-    if (loading) {
-      return _ViewModelAllRegulationWidgetState.load;
-    }
-    return _ViewModelAllRegulationWidgetState.done;
-  }
 }
 
 class _ViewModel extends ChangeNotifier {
@@ -31,16 +21,16 @@ class _ViewModel extends ChangeNotifier {
 
   void updateState() {
     _loadRegulations();
+  }
+
+  void _loadRegulations() async {
+    await _regulationService.initialize();
     final regulations = _regulationService.regulations;
 
     _state = _ViewModelState(
       regulations: regulations,
     );
     notifyListeners();
-  }
-
-  void _loadRegulations() async {
-    await _regulationService.initialize();
   }
 
   void deleteRegulation(int id) async {
@@ -59,27 +49,26 @@ class AllRegulationsWidget extends StatelessWidget {
     );
   }
 
-  Widget buildContent(BuildContext context){
-    final model = context.read<_ViewModel>();
-    final allRegState = context
-        .select((_ViewModel value) => value.state.allRegulationWidgetState);
-    Widget content = allRegState == _ViewModelAllRegulationWidgetState.load
-        ? const CircularProgressIndicator()
-        : Stack(
-          children: [Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: const [
-              _DataTable(),
-            ],
-        ), Positioned(child: IconButton(icon: Icon(Icons.update),onPressed: model.updateState))
-        ]
-        );
-        return content;
-  }
-
   @override
   Widget build(BuildContext context) {
-    return buildContent(context);
+    final model = context.read<_ViewModel>();
+    return SizedBox(
+      height: MediaQuery.of(context).size.height,
+      width: MediaQuery.of(context).size.width * 0.9,
+      child: Stack(children: [
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: const [
+            _DataTable(),
+          ],
+        ),
+        Positioned(
+            bottom: 15,
+            right: 15,
+            child: IconButton(
+                icon: const Icon(Icons.update), onPressed: model.updateState))
+      ]),
+    );
   }
 }
 
@@ -152,25 +141,36 @@ class _RemoveBtn extends StatelessWidget {
     Navigator.pop(context);
   }
 
+  void _showAlertDialog(BuildContext context) {
+    showCupertinoModalPopup<void>(
+      context: context,
+      builder: (_) => CupertinoAlertDialog(
+        content: const Text('Удалить правило?'),
+        actions: <CupertinoDialogAction>[
+          CupertinoDialogAction(
+            isDefaultAction: true,
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            child: const Text('No'),
+          ),
+          CupertinoDialogAction(
+            isDestructiveAction: true,
+            onPressed: () {
+              confirm(context);
+            },
+            child: const Text('Yes'),
+          ),
+        ],
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return IconButton(
       icon: const Icon(Icons.remove),
-      onPressed: () => showCupertinoDialog(
-          context: context,
-          builder: (_) => CupertinoAlertDialog(
-                title: const Text("Удалить правило"),
-                actions: [
-                  CupertinoDialogAction(
-                    onPressed: confirm(context),
-                    child: const Text('Да'),
-                  ),
-                  CupertinoDialogAction(
-                    onPressed: () => Navigator.pop(context),
-                    child: const Text('Нет'),
-                  )
-                ],
-              )),
+      onPressed: () => _showAlertDialog(context),
     );
   }
 }
