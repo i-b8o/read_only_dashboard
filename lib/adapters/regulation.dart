@@ -6,6 +6,7 @@ import 'package:read_only_dashboard/pb/master/master_service.pb.dart'
 import 'package:read_only_dashboard/pb/client.dart';
 
 import '../domain/entity/regulation.dart';
+import '../domain/entity/absent.dart';
 
 class RegulationProviderError {}
 
@@ -34,6 +35,26 @@ class RegulationDataProvider {
           regulationName: masterGRPCRegulation.regulationName,
           title: masterGRPCRegulation.title);
       result.add(regulation);
+    }
+    return result;
+  }
+
+  Future<List<Absent>?> getAllAbsents() async {
+    final resp = await masterClient.regulationStub
+        .getAbsents(master_grpc_service.Empty());
+    List<Absent> result = [];
+    if (resp.absents.isEmpty) {
+      return null;
+    }
+    // Mapping
+    for (var i = 0; i < resp.absents.length; i++) {
+      master_grpc_service.MasterAbsent masterGRPCAbsent = resp.absents[i];
+      Absent absent = Absent(
+          id: masterGRPCAbsent.iD.toInt(),
+          pseudo: masterGRPCAbsent.pseudo,
+          done: masterGRPCAbsent.done,
+          paragraphId: masterGRPCAbsent.paragraphId.toInt());
+      result.add(absent);
     }
     return result;
   }

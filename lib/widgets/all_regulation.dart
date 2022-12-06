@@ -24,7 +24,7 @@ class _ViewModel extends ChangeNotifier {
   }
 
   void _loadRegulations() async {
-    await _regulationService.initialize();
+    await _regulationService.loadRegulations();
     final regulations = _regulationService.regulations;
 
     _state = _ViewModelState(

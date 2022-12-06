@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
-import 'package:read_only_dashboard/widgets/absent.dart';
+import 'package:read_only_dashboard/widgets/all_absents.dart';
 import 'all_regulation.dart';
 
 enum _ViewModelContentState { regulations, absents, exit }
@@ -36,12 +36,14 @@ class HomePage extends StatelessWidget {
     final model = context.watch<_ViewModel>();
     switch (model.state.viewModelContentState) {
       case _ViewModelContentState.absents:
-        return const Absent();
+        final absents = AllAbsents.create();
+        return absents;
       case _ViewModelContentState.exit:
         SystemChannels.platform.invokeMethod('SystemNavigator.pop');
         break;
       default:
-        return AllRegulationsWidget.create();
+        final regulations = AllRegulationsWidget.create();
+        return regulations;
     }
     return null;
   }
