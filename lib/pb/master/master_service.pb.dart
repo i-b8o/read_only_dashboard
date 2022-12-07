@@ -973,239 +973,6 @@ class GetAllChaptersResponse extends $pb.GeneratedMessage {
   $core.List<MasterChapter> get chapters => $_getList(0);
 }
 
-class MasterParagraph extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'MasterParagraph', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'master.v1'), createEmptyInstance: create)
-    ..a<$fixnum.Int64>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'ID', $pb.PbFieldType.OU6, protoName: 'ID', defaultOrMaker: $fixnum.Int64.ZERO)
-    ..a<$core.int>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'Num', $pb.PbFieldType.OU3, protoName: 'Num')
-    ..aOB(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'HasLinks', protoName: 'HasLinks')
-    ..aOB(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'IsTable', protoName: 'IsTable')
-    ..aOB(5, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'IsNFT', protoName: 'IsNFT')
-    ..aOS(6, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'Class', protoName: 'Class')
-    ..aOS(7, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'Content', protoName: 'Content')
-    ..a<$fixnum.Int64>(8, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'ChapterID', $pb.PbFieldType.OU6, protoName: 'ChapterID', defaultOrMaker: $fixnum.Int64.ZERO)
-    ..hasRequiredFields = false
-  ;
-
-  MasterParagraph._() : super();
-  factory MasterParagraph({
-    $fixnum.Int64? iD,
-    $core.int? num,
-    $core.bool? hasLinks,
-    $core.bool? isTable,
-    $core.bool? isNFT,
-    $core.String? class_6,
-    $core.String? content,
-    $fixnum.Int64? chapterID,
-  }) {
-    final _result = create();
-    if (iD != null) {
-      _result.iD = iD;
-    }
-    if (num != null) {
-      _result.num = num;
-    }
-    if (hasLinks != null) {
-      _result.hasLinks = hasLinks;
-    }
-    if (isTable != null) {
-      _result.isTable = isTable;
-    }
-    if (isNFT != null) {
-      _result.isNFT = isNFT;
-    }
-    if (class_6 != null) {
-      _result.class_6 = class_6;
-    }
-    if (content != null) {
-      _result.content = content;
-    }
-    if (chapterID != null) {
-      _result.chapterID = chapterID;
-    }
-    return _result;
-  }
-  factory MasterParagraph.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory MasterParagraph.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
-  'Will be removed in next major version')
-  MasterParagraph clone() => MasterParagraph()..mergeFromMessage(this);
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
-  'Will be removed in next major version')
-  MasterParagraph copyWith(void Function(MasterParagraph) updates) => super.copyWith((message) => updates(message as MasterParagraph)) as MasterParagraph; // ignore: deprecated_member_use
-  $pb.BuilderInfo get info_ => _i;
-  @$core.pragma('dart2js:noInline')
-  static MasterParagraph create() => MasterParagraph._();
-  MasterParagraph createEmptyInstance() => create();
-  static $pb.PbList<MasterParagraph> createRepeated() => $pb.PbList<MasterParagraph>();
-  @$core.pragma('dart2js:noInline')
-  static MasterParagraph getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<MasterParagraph>(create);
-  static MasterParagraph? _defaultInstance;
-
-  @$pb.TagNumber(1)
-  $fixnum.Int64 get iD => $_getI64(0);
-  @$pb.TagNumber(1)
-  set iD($fixnum.Int64 v) { $_setInt64(0, v); }
-  @$pb.TagNumber(1)
-  $core.bool hasID() => $_has(0);
-  @$pb.TagNumber(1)
-  void clearID() => clearField(1);
-
-  @$pb.TagNumber(2)
-  $core.int get num => $_getIZ(1);
-  @$pb.TagNumber(2)
-  set num($core.int v) { $_setUnsignedInt32(1, v); }
-  @$pb.TagNumber(2)
-  $core.bool hasNum() => $_has(1);
-  @$pb.TagNumber(2)
-  void clearNum() => clearField(2);
-
-  @$pb.TagNumber(3)
-  $core.bool get hasLinks => $_getBF(2);
-  @$pb.TagNumber(3)
-  set hasLinks($core.bool v) { $_setBool(2, v); }
-  @$pb.TagNumber(3)
-  $core.bool hasHasLinks() => $_has(2);
-  @$pb.TagNumber(3)
-  void clearHasLinks() => clearField(3);
-
-  @$pb.TagNumber(4)
-  $core.bool get isTable => $_getBF(3);
-  @$pb.TagNumber(4)
-  set isTable($core.bool v) { $_setBool(3, v); }
-  @$pb.TagNumber(4)
-  $core.bool hasIsTable() => $_has(3);
-  @$pb.TagNumber(4)
-  void clearIsTable() => clearField(4);
-
-  @$pb.TagNumber(5)
-  $core.bool get isNFT => $_getBF(4);
-  @$pb.TagNumber(5)
-  set isNFT($core.bool v) { $_setBool(4, v); }
-  @$pb.TagNumber(5)
-  $core.bool hasIsNFT() => $_has(4);
-  @$pb.TagNumber(5)
-  void clearIsNFT() => clearField(5);
-
-  @$pb.TagNumber(6)
-  $core.String get class_6 => $_getSZ(5);
-  @$pb.TagNumber(6)
-  set class_6($core.String v) { $_setString(5, v); }
-  @$pb.TagNumber(6)
-  $core.bool hasClass_6() => $_has(5);
-  @$pb.TagNumber(6)
-  void clearClass_6() => clearField(6);
-
-  @$pb.TagNumber(7)
-  $core.String get content => $_getSZ(6);
-  @$pb.TagNumber(7)
-  set content($core.String v) { $_setString(6, v); }
-  @$pb.TagNumber(7)
-  $core.bool hasContent() => $_has(6);
-  @$pb.TagNumber(7)
-  void clearContent() => clearField(7);
-
-  @$pb.TagNumber(8)
-  $fixnum.Int64 get chapterID => $_getI64(7);
-  @$pb.TagNumber(8)
-  set chapterID($fixnum.Int64 v) { $_setInt64(7, v); }
-  @$pb.TagNumber(8)
-  $core.bool hasChapterID() => $_has(7);
-  @$pb.TagNumber(8)
-  void clearChapterID() => clearField(8);
-}
-
-class GetAllParagraphsRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'GetAllParagraphsRequest', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'master.v1'), createEmptyInstance: create)
-    ..a<$fixnum.Int64>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'ID', $pb.PbFieldType.OU6, protoName: 'ID', defaultOrMaker: $fixnum.Int64.ZERO)
-    ..hasRequiredFields = false
-  ;
-
-  GetAllParagraphsRequest._() : super();
-  factory GetAllParagraphsRequest({
-    $fixnum.Int64? iD,
-  }) {
-    final _result = create();
-    if (iD != null) {
-      _result.iD = iD;
-    }
-    return _result;
-  }
-  factory GetAllParagraphsRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory GetAllParagraphsRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
-  'Will be removed in next major version')
-  GetAllParagraphsRequest clone() => GetAllParagraphsRequest()..mergeFromMessage(this);
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
-  'Will be removed in next major version')
-  GetAllParagraphsRequest copyWith(void Function(GetAllParagraphsRequest) updates) => super.copyWith((message) => updates(message as GetAllParagraphsRequest)) as GetAllParagraphsRequest; // ignore: deprecated_member_use
-  $pb.BuilderInfo get info_ => _i;
-  @$core.pragma('dart2js:noInline')
-  static GetAllParagraphsRequest create() => GetAllParagraphsRequest._();
-  GetAllParagraphsRequest createEmptyInstance() => create();
-  static $pb.PbList<GetAllParagraphsRequest> createRepeated() => $pb.PbList<GetAllParagraphsRequest>();
-  @$core.pragma('dart2js:noInline')
-  static GetAllParagraphsRequest getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<GetAllParagraphsRequest>(create);
-  static GetAllParagraphsRequest? _defaultInstance;
-
-  @$pb.TagNumber(1)
-  $fixnum.Int64 get iD => $_getI64(0);
-  @$pb.TagNumber(1)
-  set iD($fixnum.Int64 v) { $_setInt64(0, v); }
-  @$pb.TagNumber(1)
-  $core.bool hasID() => $_has(0);
-  @$pb.TagNumber(1)
-  void clearID() => clearField(1);
-}
-
-class GetAllParagraphsResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'GetAllParagraphsResponse', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'master.v1'), createEmptyInstance: create)
-    ..pc<MasterParagraph>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'paragraphs', $pb.PbFieldType.PM, subBuilder: MasterParagraph.create)
-    ..hasRequiredFields = false
-  ;
-
-  GetAllParagraphsResponse._() : super();
-  factory GetAllParagraphsResponse({
-    $core.Iterable<MasterParagraph>? paragraphs,
-  }) {
-    final _result = create();
-    if (paragraphs != null) {
-      _result.paragraphs.addAll(paragraphs);
-    }
-    return _result;
-  }
-  factory GetAllParagraphsResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory GetAllParagraphsResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
-  'Will be removed in next major version')
-  GetAllParagraphsResponse clone() => GetAllParagraphsResponse()..mergeFromMessage(this);
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
-  'Will be removed in next major version')
-  GetAllParagraphsResponse copyWith(void Function(GetAllParagraphsResponse) updates) => super.copyWith((message) => updates(message as GetAllParagraphsResponse)) as GetAllParagraphsResponse; // ignore: deprecated_member_use
-  $pb.BuilderInfo get info_ => _i;
-  @$core.pragma('dart2js:noInline')
-  static GetAllParagraphsResponse create() => GetAllParagraphsResponse._();
-  GetAllParagraphsResponse createEmptyInstance() => create();
-  static $pb.PbList<GetAllParagraphsResponse> createRepeated() => $pb.PbList<GetAllParagraphsResponse>();
-  @$core.pragma('dart2js:noInline')
-  static GetAllParagraphsResponse getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<GetAllParagraphsResponse>(create);
-  static GetAllParagraphsResponse? _defaultInstance;
-
-  @$pb.TagNumber(1)
-  $core.List<MasterParagraph> get paragraphs => $_getList(0);
-}
-
 class UpdateParagraphRequest extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'UpdateParagraphRequest', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'master.v1'), createEmptyInstance: create)
     ..a<$fixnum.Int64>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'ID', $pb.PbFieldType.OU6, protoName: 'ID', defaultOrMaker: $fixnum.Int64.ZERO)
@@ -1395,5 +1162,99 @@ class GetAbsentsResponse extends $pb.GeneratedMessage {
 
   @$pb.TagNumber(1)
   $core.List<MasterAbsent> get absents => $_getList(0);
+}
+
+class GetOneParagraphRequest extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'GetOneParagraphRequest', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'master.v1'), createEmptyInstance: create)
+    ..a<$fixnum.Int64>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'ID', $pb.PbFieldType.OU6, protoName: 'ID', defaultOrMaker: $fixnum.Int64.ZERO)
+    ..hasRequiredFields = false
+  ;
+
+  GetOneParagraphRequest._() : super();
+  factory GetOneParagraphRequest({
+    $fixnum.Int64? iD,
+  }) {
+    final _result = create();
+    if (iD != null) {
+      _result.iD = iD;
+    }
+    return _result;
+  }
+  factory GetOneParagraphRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory GetOneParagraphRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  GetOneParagraphRequest clone() => GetOneParagraphRequest()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  GetOneParagraphRequest copyWith(void Function(GetOneParagraphRequest) updates) => super.copyWith((message) => updates(message as GetOneParagraphRequest)) as GetOneParagraphRequest; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static GetOneParagraphRequest create() => GetOneParagraphRequest._();
+  GetOneParagraphRequest createEmptyInstance() => create();
+  static $pb.PbList<GetOneParagraphRequest> createRepeated() => $pb.PbList<GetOneParagraphRequest>();
+  @$core.pragma('dart2js:noInline')
+  static GetOneParagraphRequest getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<GetOneParagraphRequest>(create);
+  static GetOneParagraphRequest? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $fixnum.Int64 get iD => $_getI64(0);
+  @$pb.TagNumber(1)
+  set iD($fixnum.Int64 v) { $_setInt64(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasID() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearID() => clearField(1);
+}
+
+class GetOneParagraphResponse extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'GetOneParagraphResponse', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'master.v1'), createEmptyInstance: create)
+    ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'Content', protoName: 'Content')
+    ..hasRequiredFields = false
+  ;
+
+  GetOneParagraphResponse._() : super();
+  factory GetOneParagraphResponse({
+    $core.String? content,
+  }) {
+    final _result = create();
+    if (content != null) {
+      _result.content = content;
+    }
+    return _result;
+  }
+  factory GetOneParagraphResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory GetOneParagraphResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  GetOneParagraphResponse clone() => GetOneParagraphResponse()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  GetOneParagraphResponse copyWith(void Function(GetOneParagraphResponse) updates) => super.copyWith((message) => updates(message as GetOneParagraphResponse)) as GetOneParagraphResponse; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static GetOneParagraphResponse create() => GetOneParagraphResponse._();
+  GetOneParagraphResponse createEmptyInstance() => create();
+  static $pb.PbList<GetOneParagraphResponse> createRepeated() => $pb.PbList<GetOneParagraphResponse>();
+  @$core.pragma('dart2js:noInline')
+  static GetOneParagraphResponse getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<GetOneParagraphResponse>(create);
+  static GetOneParagraphResponse? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get content => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set content($core.String v) { $_setString(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasContent() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearContent() => clearField(1);
 }
 

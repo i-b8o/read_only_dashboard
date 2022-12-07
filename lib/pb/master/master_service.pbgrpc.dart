@@ -238,12 +238,12 @@ class MasterParagraphGRPCClient extends $grpc.Client {
           '/master.v1.MasterParagraphGRPC/Create',
           ($0.CreateParagraphsRequest value) => value.writeToBuffer(),
           ($core.List<$core.int> value) => $0.Empty.fromBuffer(value));
-  static final _$getAll = $grpc.ClientMethod<$0.GetAllParagraphsRequest,
-          $0.GetAllParagraphsResponse>(
-      '/master.v1.MasterParagraphGRPC/GetAll',
-      ($0.GetAllParagraphsRequest value) => value.writeToBuffer(),
-      ($core.List<$core.int> value) =>
-          $0.GetAllParagraphsResponse.fromBuffer(value));
+  static final _$getOne =
+      $grpc.ClientMethod<$0.GetOneParagraphRequest, $0.GetOneParagraphResponse>(
+          '/master.v1.MasterParagraphGRPC/GetOne',
+          ($0.GetOneParagraphRequest value) => value.writeToBuffer(),
+          ($core.List<$core.int> value) =>
+              $0.GetOneParagraphResponse.fromBuffer(value));
   static final _$update =
       $grpc.ClientMethod<$0.UpdateParagraphRequest, $0.Empty>(
           '/master.v1.MasterParagraphGRPC/Update',
@@ -260,10 +260,10 @@ class MasterParagraphGRPCClient extends $grpc.Client {
     return $createUnaryCall(_$create, request, options: options);
   }
 
-  $grpc.ResponseFuture<$0.GetAllParagraphsResponse> getAll(
-      $0.GetAllParagraphsRequest request,
+  $grpc.ResponseFuture<$0.GetOneParagraphResponse> getOne(
+      $0.GetOneParagraphRequest request,
       {$grpc.CallOptions? options}) {
-    return $createUnaryCall(_$getAll, request, options: options);
+    return $createUnaryCall(_$getOne, request, options: options);
   }
 
   $grpc.ResponseFuture<$0.Empty> update($0.UpdateParagraphRequest request,
@@ -284,15 +284,15 @@ abstract class MasterParagraphGRPCServiceBase extends $grpc.Service {
         ($core.List<$core.int> value) =>
             $0.CreateParagraphsRequest.fromBuffer(value),
         ($0.Empty value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$0.GetAllParagraphsRequest,
-            $0.GetAllParagraphsResponse>(
-        'GetAll',
-        getAll_Pre,
+    $addMethod($grpc.ServiceMethod<$0.GetOneParagraphRequest,
+            $0.GetOneParagraphResponse>(
+        'GetOne',
+        getOne_Pre,
         false,
         false,
         ($core.List<$core.int> value) =>
-            $0.GetAllParagraphsRequest.fromBuffer(value),
-        ($0.GetAllParagraphsResponse value) => value.writeToBuffer()));
+            $0.GetOneParagraphRequest.fromBuffer(value),
+        ($0.GetOneParagraphResponse value) => value.writeToBuffer()));
     $addMethod($grpc.ServiceMethod<$0.UpdateParagraphRequest, $0.Empty>(
         'Update',
         update_Pre,
@@ -308,9 +308,9 @@ abstract class MasterParagraphGRPCServiceBase extends $grpc.Service {
     return create(call, await request);
   }
 
-  $async.Future<$0.GetAllParagraphsResponse> getAll_Pre($grpc.ServiceCall call,
-      $async.Future<$0.GetAllParagraphsRequest> request) async {
-    return getAll(call, await request);
+  $async.Future<$0.GetOneParagraphResponse> getOne_Pre($grpc.ServiceCall call,
+      $async.Future<$0.GetOneParagraphRequest> request) async {
+    return getOne(call, await request);
   }
 
   $async.Future<$0.Empty> update_Pre($grpc.ServiceCall call,
@@ -320,8 +320,8 @@ abstract class MasterParagraphGRPCServiceBase extends $grpc.Service {
 
   $async.Future<$0.Empty> create(
       $grpc.ServiceCall call, $0.CreateParagraphsRequest request);
-  $async.Future<$0.GetAllParagraphsResponse> getAll(
-      $grpc.ServiceCall call, $0.GetAllParagraphsRequest request);
+  $async.Future<$0.GetOneParagraphResponse> getOne(
+      $grpc.ServiceCall call, $0.GetOneParagraphRequest request);
   $async.Future<$0.Empty> update(
       $grpc.ServiceCall call, $0.UpdateParagraphRequest request);
 }

@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'package:read_only_dashboard/widgets/all_absents.dart';
+import 'package:read_only_dashboard/widgets/edit_paragraph.dart';
 import 'all_regulation.dart';
 
-enum _ViewModelContentState { regulations, absents, exit }
+enum _ViewModelContentState { regulations, absents, editParagraph, exit }
 
 class _ViewModelState {
   _ViewModelState(this._viewModelContentState);
@@ -38,6 +39,9 @@ class HomePage extends StatelessWidget {
       case _ViewModelContentState.absents:
         final absents = AllAbsents.create();
         return absents;
+      case _ViewModelContentState.editParagraph:
+        final editParagraph = EditParagraphWidget.create();
+        return editParagraph;
       case _ViewModelContentState.exit:
         SystemChannels.platform.invokeMethod('SystemNavigator.pop');
         break;
@@ -64,6 +68,7 @@ class HomePage extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               children: const [
                 _RegulationsBtnWidget(),
+                _EditParagraphBtnWidget(),
                 _AbsentsBtnWidget(),
                 _ExitBtnWidget()
               ],
@@ -107,6 +112,23 @@ class _AbsentsBtnWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextButton(
         onPressed: () => onPressed(context), child: const Text("Новые"));
+  }
+}
+
+class _EditParagraphBtnWidget extends StatelessWidget {
+  const _EditParagraphBtnWidget({
+    Key? key,
+  }) : super(key: key);
+
+  void onPressed(BuildContext context) {
+    final model = context.read<_ViewModel>();
+    model.changeContent(_ViewModelContentState.editParagraph);
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return TextButton(
+        onPressed: () => onPressed(context), child: const Text("Редактировать параграф"));
   }
 }
 

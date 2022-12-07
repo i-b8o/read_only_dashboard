@@ -52,22 +52,23 @@ class AllRegulationsWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final model = context.read<_ViewModel>();
-    return SizedBox(
-      height: MediaQuery.of(context).size.height,
-      width: MediaQuery.of(context).size.width * 0.9,
-      child: Stack(children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: const [
-            _DataTable(),
-          ],
-        ),
-        Positioned(
-            bottom: 15,
-            right: 15,
-            child: IconButton(
-                icon: const Icon(Icons.update), onPressed: model.updateState))
-      ]),
+    return Expanded(
+      child: SizedBox(
+        height: MediaQuery.of(context).size.height,
+        child: Stack(children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: const [
+              _DataTable(),
+            ],
+          ),
+          Positioned(
+              bottom: 15,
+              right: 15,
+              child: IconButton(
+                  icon: const Icon(Icons.update), onPressed: model.updateState))
+        ]),
+      ),
     );
   }
 }
@@ -92,9 +93,7 @@ class _DataTable extends StatelessWidget {
         DataColumn(
             label: Text('Заголовок',
                 style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold))),
-        DataColumn(
-            label: Text('Редактировать',
-                style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold))),
+      
         DataColumn(
             label: Text('Удалить',
                 style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold))),
@@ -111,12 +110,7 @@ class _DataTable extends StatelessWidget {
                   DataCell(
                     Text(e.title),
                   ),
-                  DataCell(
-                    IconButton(
-                      icon: const Icon(Icons.edit_note_rounded),
-                      onPressed: () {},
-                    ),
-                  ),
+                 
                   DataCell(
                     _RemoveBtn(id: e.id),
                   ),

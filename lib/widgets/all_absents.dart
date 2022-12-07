@@ -52,22 +52,26 @@ class AllAbsents extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final model = context.read<_ViewModel>();
-    return SizedBox(
-      height: MediaQuery.of(context).size.height,
-      width: MediaQuery.of(context).size.width * 0.9,
-      child: Stack(children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: const [
-            _DataTable(),
-          ],
-        ),
-        Positioned(
-            bottom: 15,
-            right: 15,
-            child: IconButton(
-                icon: const Icon(Icons.update), onPressed: model.updateState))
-      ]),
+    return Expanded(
+      child: SizedBox(
+        height: MediaQuery.of(context).size.height,
+        child: Stack(children: [
+          Padding(
+            padding: const EdgeInsets.only(top: 25.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: const [
+                _DataTable(),
+              ],
+            ),
+          ),
+          Positioned(
+              bottom: 15,
+              right: 15,
+              child: IconButton(
+                  icon: const Icon(Icons.update), onPressed: model.updateState))
+        ]),
+      ),
     );
   }
 }
@@ -92,6 +96,9 @@ class _DataTable extends StatelessWidget {
         DataColumn(
             label: Text('done',
                 style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold))),
+        DataColumn(
+            label: Text('paragraph',
+                style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold))),
       ],
       rows: absents
           .map((e) => DataRow(
@@ -104,6 +111,9 @@ class _DataTable extends StatelessWidget {
                   ),
                   DataCell(
                     Text('${e.done}'),
+                  ),
+                   DataCell(
+                    Text('${e.paragraphId}'),
                   ),
                 ],
               ))
