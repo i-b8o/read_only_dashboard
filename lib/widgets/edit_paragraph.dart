@@ -1,34 +1,42 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:read_only_dashboard/domain/services/paragraph.dart';
+import 'package:read_only_dashboard/widgets/error.dart';
 
 class _ViewModelState {
+  String errorTitle = '';
+  final int? id;
   final String paragraphContent;
-  _ViewModelState({required this.paragraphContent});
+  _ViewModelState({required this.id, required this.paragraphContent});
 }
 
 class _ViewModel extends ChangeNotifier {
-  _ViewModel() {
-   
+  _ViewModel();
+
+  final _paragraphService = ParagraphService();
+
+  var _state = _ViewModelState(paragraphContent: '', id: null);
+  _ViewModelState get state => _state;
+
+  void updateState() {
+    _loadParagraph(_state.id);
   }
 
-  // final _regulationService = RegulationService();
+  void _loadParagraph(int? id) async {
+    if (id == null){
+      _state.errorTitle = "ошибка";
+      notifyListeners();
+    }
+    await _paragraphService.loadParagraph(id!);
+    final paragraph = _paragraphService.paragraph;
 
-  // var _state = _ViewModelState();
-  // _ViewModelState get state => _state;
-
-  // void updateState() {
-  //   _loadAbsents();
-  // }
-
-  // void _loadAbsents() async {
-  //   await _regulationService.loadAbsents();
-  //   final regulations = _regulationService.parahraphs;
-
-  //   _state = _ViewModelState(
-  //     parahraphs: regulations,
-  //   );
-  //   notifyListeners();
-  // }
+    if (paragraph == null){
+      _state.errorTitle = "ошибка";
+      notifyListeners();
+    }
+    _state = _ViewModelState(id: id, paragraphContent: paragraph!.content);
+    notifyListeners();
+  }
 
   // void deleteRegulation(int id) async {
   //   await _regulationService.delete(id);
@@ -48,13 +56,24 @@ class EditParagraphWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final errorTitle =
+        context.select((_ViewModel value) => value.state.errorTitle);
     return  Expanded(
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        mainAxisSize: MainAxisSize.min,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          SizedBox(child: _InputWidget(), width: MediaQuery.of(context).size.width *0.5,),
-    
+          SizedBox(height: 50,),
+          Center(
+            child: ErrorTitleWidget(errorTitle: errorTitle),
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              SizedBox(width: MediaQuery.of(context).size.width *0.2,child: const _InputWidget(),),
+              IconButton(onPressed: (){}, icon: Icon(Icons.get_app))
+            ],
+          ),
         ],
       ),
     );

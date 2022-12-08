@@ -8,21 +8,26 @@ import 'package:read_only_dashboard/pb/client.dart';
 import '../domain/entity/regulation.dart';
 import '../domain/entity/absent.dart';
 
-class RegulationProviderError {}
+class RegulationAdapterError {}
 
-class RegulationDataProvider {
+class RegulationAdapter {
   final masterClient = MasterClient();
 
   Future<void> deleteRegulation(int id) async {
     Int64 id64 = Int64(id);
     final request = master_grpc_service.DeleteRegulationRequest(iD: id64);
-    await masterClient.regulationStub.delete(request);
+    try {
+      await masterClient.regulationStub.delete(request);
+    } catch (e) {
+      throw RegulationAdapterError();
+    }
   }
 
   Future<List<Regulation>?> getAllRegulations() async {
+    try {
     final resp =
         await masterClient.regulationStub.getAll(master_grpc_service.Empty());
-    List<Regulation> result = [];
+      List<Regulation> result = [];
     if (resp.regulations.isEmpty) {
       return null;
     }
@@ -37,9 +42,13 @@ class RegulationDataProvider {
       result.add(regulation);
     }
     return result;
+    } catch (e) {
+      throw RegulationAdapterError();
+    }
   }
 
   Future<List<Absent>?> getAllAbsents() async {
+    try {
     final resp = await masterClient.regulationStub
         .getAbsents(master_grpc_service.Empty());
     List<Absent> result = [];
@@ -56,6 +65,9 @@ class RegulationDataProvider {
           paragraphId: masterGRPCAbsent.paragraphId.toInt());
       result.add(absent);
     }
-    return result;
+    return result;  
+    } catch (e) {
+      throw RegulationAdapterError();
+    }
   }
 }

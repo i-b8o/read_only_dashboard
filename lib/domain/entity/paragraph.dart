@@ -1,6 +1,6 @@
-class Paragraph {
-  final int ID;
-  final int Content;
+class ParagraphData {
+  final int id;
+  final String content;
 
-  Paragraph({required this.ID, required this.Content});
+  ParagraphData({required this.id, required this.content});
 }

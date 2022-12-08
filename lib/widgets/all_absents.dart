@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../adapters/regulation.dart';
 import '../domain/entity/absent.dart';
 import '../domain/services/regulation.dart';
+import 'error.dart';
 
 class _ViewModelState {
+  String errorTitle = '';
   final List<Absent>? absents;
   _ViewModelState({this.absents});
 }
@@ -24,18 +27,27 @@ class _ViewModel extends ChangeNotifier {
   }
 
   void _loadAbsents() async {
-    await _regulationService.loadAbsents();
-    final regulations = _regulationService.absents;
+    try {
+      await _regulationService.loadAbsents();
+      final regulations = _regulationService.absents;
 
-    _state = _ViewModelState(
-      absents: regulations,
-    );
-    notifyListeners();
+      _state = _ViewModelState(
+        absents: regulations,
+      );
+    } on RegulationAdapterError {
+      _state.errorTitle = "ошибка подключения к серверу";
+    }
+      notifyListeners();
   }
 
   void deleteRegulation(int id) async {
-    await _regulationService.delete(id);
-    updateState();
+    try {
+      await _regulationService.delete(id);
+      updateState();
+    } on RegulationAdapterError {
+      _state.errorTitle = "ошибка подключения к серверу";
+      notifyListeners();
+    }
   }
 }
 
@@ -52,10 +64,15 @@ class AllAbsents extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final model = context.read<_ViewModel>();
+    final errorTitle =
+        context.select((_ViewModel value) => value.state.errorTitle);
     return Expanded(
       child: SizedBox(
         height: MediaQuery.of(context).size.height,
         child: Stack(children: [
+          Center(
+            child: ErrorTitleWidget(errorTitle: errorTitle),
+          ),
           Padding(
             padding: const EdgeInsets.only(top: 25.0),
             child: Row(

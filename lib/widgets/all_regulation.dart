@@ -1,10 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:read_only_dashboard/adapters/regulation.dart';
 import 'package:read_only_dashboard/domain/entity/regulation.dart';
 import 'package:read_only_dashboard/domain/services/regulation.dart';
+import 'package:read_only_dashboard/widgets/error.dart';
 
 class _ViewModelState {
+  String errorTitle = '';
   final List<Regulation>? regulations;
   _ViewModelState({this.regulations});
 }
@@ -24,18 +27,26 @@ class _ViewModel extends ChangeNotifier {
   }
 
   void _loadRegulations() async {
-    await _regulationService.loadRegulations();
-    final regulations = _regulationService.regulations;
-
-    _state = _ViewModelState(
-      regulations: regulations,
-    );
+    try {
+      await _regulationService.loadRegulations();
+      final regulations = _regulationService.regulations;
+      _state = _ViewModelState(
+        regulations: regulations,
+      );
+    } on RegulationAdapterError {
+      _state.errorTitle = "ошибка подключения к серверу";
+    }
     notifyListeners();
   }
 
   void deleteRegulation(int id) async {
-    await _regulationService.delete(id);
-    updateState();
+    try {
+      await _regulationService.delete(id);
+      updateState();
+    } catch (e) {
+      _state.errorTitle = "ошибка подключения к серверу";
+      notifyListeners();
+    }
   }
 }
 
@@ -52,10 +63,16 @@ class AllRegulationsWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final model = context.read<_ViewModel>();
+        final errorTitle =
+        context.select((_ViewModel value) => value.state.errorTitle);
+
     return Expanded(
       child: SizedBox(
         height: MediaQuery.of(context).size.height,
         child: Stack(children: [
+          Center(
+            child: ErrorTitleWidget(errorTitle: errorTitle),
+          ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: const [
