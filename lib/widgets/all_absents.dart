@@ -37,7 +37,7 @@ class _ViewModel extends ChangeNotifier {
     } on RegulationAdapterError {
       _state.errorTitle = "ошибка подключения к серверу";
     }
-      notifyListeners();
+    notifyListeners();
   }
 
   void deleteRegulation(int id) async {
@@ -129,7 +129,7 @@ class _DataTable extends StatelessWidget {
                   DataCell(
                     Text('${e.done}'),
                   ),
-                   DataCell(
+                  DataCell(
                     Text('${e.paragraphId}'),
                   ),
                 ],

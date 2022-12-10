@@ -6,8 +6,9 @@ import 'package:read_only_dashboard/widgets/error.dart';
 class _ViewModelState {
   String errorTitle = '';
   int? id;
-  String paragraphContent;
-  _ViewModelState({required this.id, required this.paragraphContent});
+  String oldParagraphContent;
+  String? newParagraphContent;
+  _ViewModelState({required this.id, required this.oldParagraphContent});
 }
 
 class _ViewModel extends ChangeNotifier {
@@ -15,7 +16,7 @@ class _ViewModel extends ChangeNotifier {
 
   final _paragraphService = ParagraphService();
 
-  final _state = _ViewModelState(paragraphContent: '', id: null);
+  final _state = _ViewModelState(oldParagraphContent: '', id: null);
   _ViewModelState get state => _state;
 
   void updateState() {
@@ -34,15 +35,30 @@ class _ViewModel extends ChangeNotifier {
       _state.errorTitle = "ошибка";
       notifyListeners();
     }
-    _state.paragraphContent = paragraph!.content;
+    _state.oldParagraphContent = paragraph!.content;
     notifyListeners();
   }
 
-  void changeID(String id) async {
+  void update() async {
+    if (_state.id == null || _state.newParagraphContent == null) {
+      _state.errorTitle = "ошибка";
+      notifyListeners();
+    }
+    await _paragraphService.updateContent(
+        _state.id!, _state.newParagraphContent!);
+    _loadParagraph();
+  }
+
+  void setID(String id) async {
     int? idInt = int.tryParse(id);
     if (_state.id == idInt) return;
     _state.id = idInt;
     notifyListeners();
+  }
+
+  void setNewContent(String content) async {
+    if (_state.newParagraphContent == content) return;
+    _state.newParagraphContent = content;
   }
 }
 
@@ -88,7 +104,7 @@ class _OldContentWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final content = context.watch<_ViewModel>().state.paragraphContent;
+    final content = context.watch<_ViewModel>().state.oldParagraphContent;
     return Text(content);
   }
 }
@@ -130,16 +146,24 @@ class _EditContentWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final content = context.watch<_ViewModel>().state.paragraphContent;
-    return SizedBox(
-      width: MediaQuery.of(context).size.width * 0.5,
-      child: TextField(
-        controller: TextEditingController()..text = content,
-        decoration: const InputDecoration(
-          border: OutlineInputBorder(),
+    final content = context.watch<_ViewModel>().state.oldParagraphContent;
+    final model = context.read<_ViewModel>();
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        SizedBox(
+          width: MediaQuery.of(context).size.width * 0.5,
+          child: TextField(
+            controller: TextEditingController()..text = content,
+            decoration: const InputDecoration(
+              border: OutlineInputBorder(),
+            ),
+            maxLines: null,
+            onChanged: (value) => model.setNewContent(value),
+          ),
         ),
-        onChanged: null,
-      ),
+        IconButton(onPressed: model.update, icon: const Icon(Icons.update))
+      ],
     );
   }
 }
@@ -170,7 +194,7 @@ class _InputWidget extends StatelessWidget {
           labelText: 'Параграф ID',
           border: OutlineInputBorder(),
         ),
-        onChanged: (value) => model.changeID(value),
+        onChanged: (value) => model.setID(value),
       ),
     );
   }
