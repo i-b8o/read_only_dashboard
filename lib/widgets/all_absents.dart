@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../adapters/regulation.dart';
+import '../data_providers/regulation.dart';
 import '../domain/entity/absent.dart';
 import '../domain/services/regulation.dart';
 import 'error.dart';
@@ -34,7 +34,7 @@ class _ViewModel extends ChangeNotifier {
       _state = _ViewModelState(
         absents: regulations,
       );
-    } on RegulationAdapterError {
+    } on RegulationProviderError {
       _state.errorTitle = "ошибка подключения к серверу";
     }
     notifyListeners();
@@ -44,7 +44,7 @@ class _ViewModel extends ChangeNotifier {
     try {
       await _regulationService.delete(id);
       updateState();
-    } on RegulationAdapterError {
+    } on RegulationProviderError {
       _state.errorTitle = "ошибка подключения к серверу";
       notifyListeners();
     }

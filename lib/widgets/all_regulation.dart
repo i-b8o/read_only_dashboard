@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:read_only_dashboard/adapters/regulation.dart';
+import 'package:read_only_dashboard/data_providers/regulation.dart';
 import 'package:read_only_dashboard/domain/entity/regulation.dart';
 import 'package:read_only_dashboard/domain/services/regulation.dart';
 import 'package:read_only_dashboard/widgets/error.dart';
@@ -33,7 +33,7 @@ class _ViewModel extends ChangeNotifier {
       _state = _ViewModelState(
         regulations: regulations,
       );
-    } on RegulationAdapterError {
+    } on RegulationProviderError {
       _state.errorTitle = "ошибка подключения к серверу";
     }
     notifyListeners();

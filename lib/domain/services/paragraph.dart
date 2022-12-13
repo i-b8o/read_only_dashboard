@@ -1,9 +1,9 @@
-import 'package:read_only_dashboard/adapters/paragraph.dart';
+import 'package:read_only_dashboard/data_providers/paragraph.dart';
 
 import '../entity/paragraph.dart';
 
 class ParagraphService {
-  final _paragraphDataProvider = ParagraphAdapter();
+  final _paragraphDataProvider = ParagraphProvider();
   ParagraphData? _paragraph;
   ParagraphData? get paragraph => _paragraph;
 

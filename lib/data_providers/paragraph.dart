@@ -8,9 +8,9 @@ import 'package:read_only_dashboard/pb/master/master_service.pb.dart'
 
 import '../pb/master/master_service.pb.dart';
 
-class ParagraphAdapterError {}
+class ParagraphProviderError {}
 
-class ParagraphAdapter {
+class ParagraphProvider {
   final masterClient = MasterClient();
 
   Future<ParagraphData?> get(int id) async {
@@ -26,7 +26,7 @@ class ParagraphAdapter {
           ParagraphData(id: id, content: resp.content);
       return paragraphData;
     } catch (e) {
-      throw ParagraphAdapterError();
+      throw ParagraphProviderError();
     }
   }
 
@@ -37,7 +37,7 @@ class ParagraphAdapter {
           UpdateParagraphRequest(iD: id64, content: content);
       await masterClient.paragraphStub.update(req);
     } catch (e) {
-      throw ParagraphAdapterError();
+      throw ParagraphProviderError();
     }
   }
 }

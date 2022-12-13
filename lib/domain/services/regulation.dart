@@ -1,10 +1,10 @@
-import 'package:read_only_dashboard/adapters/regulation.dart';
+import 'package:read_only_dashboard/data_providers/regulation.dart';
 import 'package:read_only_dashboard/domain/entity/regulation.dart';
 
 import '../entity/absent.dart';
 
 class RegulationService {
-  final _regulationDataProvider = RegulationAdapter();
+  final _regulationDataProvider = RegulationProvider();
   List<Regulation> _regulations = [];
   List<Regulation> get regulations => _regulations;
 

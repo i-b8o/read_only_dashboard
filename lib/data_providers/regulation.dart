@@ -8,9 +8,9 @@ import 'package:read_only_dashboard/pb/client.dart';
 import '../domain/entity/regulation.dart';
 import '../domain/entity/absent.dart';
 
-class RegulationAdapterError {}
+class RegulationProviderError {}
 
-class RegulationAdapter {
+class RegulationProvider {
   final masterClient = MasterClient();
 
   Future<void> deleteRegulation(int id) async {
@@ -19,7 +19,7 @@ class RegulationAdapter {
     try {
       await masterClient.regulationStub.delete(request);
     } catch (e) {
-      throw RegulationAdapterError();
+      throw RegulationProviderError();
     }
   }
 
@@ -43,7 +43,7 @@ class RegulationAdapter {
     }
     return result;
     } catch (e) {
-      throw RegulationAdapterError();
+      throw RegulationProviderError();
     }
   }
 
@@ -67,7 +67,7 @@ class RegulationAdapter {
     }
     return result;  
     } catch (e) {
-      throw RegulationAdapterError();
+      throw RegulationProviderError();
     }
   }
 }
