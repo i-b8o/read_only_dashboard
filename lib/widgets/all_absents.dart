@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter/services.dart';
 
 import '../data_providers/regulation.dart';
 import '../domain/entity/absent.dart';
@@ -124,7 +125,13 @@ class _DataTable extends StatelessWidget {
                     Text('${e.id}'),
                   ),
                   DataCell(
-                    Text(e.pseudo),
+                    GestureDetector(
+                        onDoubleTap: () async {
+                          await Clipboard.setData(
+                              ClipboardData(text: e.pseudo));
+                          // copied successfully
+                        },
+                        child: Text(e.pseudo)),
                   ),
                   DataCell(
                     Text('${e.done}'),

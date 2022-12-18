@@ -25,47 +25,49 @@ class RegulationProvider {
 
   Future<List<Regulation>?> getAllRegulations() async {
     try {
-    final resp =
-        await masterClient.regulationStub.getAll(master_grpc_service.Empty());
+      final resp =
+          await masterClient.regulationStub.getAll(master_grpc_service.Empty());
       List<Regulation> result = [];
-    if (resp.regulations.isEmpty) {
-      return null;
-    }
-    // Mapping
-    for (var i = 0; i < resp.regulations.length; i++) {
-      master_grpc_service.Regulation masterGRPCRegulation = resp.regulations[i];
-      Regulation regulation = Regulation(
-          id: masterGRPCRegulation.iD.toInt(),
-          abbreviation: masterGRPCRegulation.abbreviation,
-          regulationName: masterGRPCRegulation.regulationName,
-          title: masterGRPCRegulation.title);
-      result.add(regulation);
-    }
-    return result;
+      if (resp.regulations.isEmpty) {
+        return null;
+      }
+      // Mapping
+      for (var i = 0; i < resp.regulations.length; i++) {
+        master_grpc_service.Regulation masterGRPCRegulation =
+            resp.regulations[i];
+        Regulation regulation = Regulation(
+            id: masterGRPCRegulation.iD.toInt(),
+            abbreviation: masterGRPCRegulation.abbreviation,
+            regulationName: masterGRPCRegulation.regulationName,
+            title: masterGRPCRegulation.title);
+        result.add(regulation);
+      }
+      return result;
     } catch (e) {
+      print(e);
       throw RegulationProviderError();
     }
   }
 
   Future<List<Absent>?> getAllAbsents() async {
     try {
-    final resp = await masterClient.regulationStub
-        .getAbsents(master_grpc_service.Empty());
-    List<Absent> result = [];
-    if (resp.absents.isEmpty) {
-      return null;
-    }
-    // Mapping
-    for (var i = 0; i < resp.absents.length; i++) {
-      master_grpc_service.MasterAbsent masterGRPCAbsent = resp.absents[i];
-      Absent absent = Absent(
-          id: masterGRPCAbsent.iD.toInt(),
-          pseudo: masterGRPCAbsent.pseudo,
-          done: masterGRPCAbsent.done,
-          paragraphId: masterGRPCAbsent.paragraphId.toInt());
-      result.add(absent);
-    }
-    return result;  
+      final resp = await masterClient.regulationStub
+          .getAbsents(master_grpc_service.Empty());
+      List<Absent> result = [];
+      if (resp.absents.isEmpty) {
+        return null;
+      }
+      // Mapping
+      for (var i = 0; i < resp.absents.length; i++) {
+        master_grpc_service.MasterAbsent masterGRPCAbsent = resp.absents[i];
+        Absent absent = Absent(
+            id: masterGRPCAbsent.iD.toInt(),
+            pseudo: masterGRPCAbsent.pseudo,
+            done: masterGRPCAbsent.done,
+            paragraphId: masterGRPCAbsent.paragraphId.toInt());
+        result.add(absent);
+      }
+      return result;
     } catch (e) {
       throw RegulationProviderError();
     }

@@ -15,7 +15,6 @@ class MasterClient {
       options: const ChannelOptions(credentials: ChannelCredentials.insecure()),
     );
     regulationStub = MasterRegulationGRPCClient(channel);
-    // chapterStub = MasterChapterGRPCClient(channel);
     paragraphStub = MasterParagraphGRPCClient(channel);
   }
 }
