@@ -3,7 +3,7 @@
 //  source: master/master_service.proto
 //
 // @dart = 2.12
-// ignore_for_file: annotate_overrides,camel_case_types,unnecessary_const,non_constant_identifier_names,library_prefixes,unused_import,unused_shown_name,return_of_invalid_type,unnecessary_this,prefer_final_fields,deprecated_member_use_from_same_package
+// ignore_for_file: annotate_overrides,camel_case_types,constant_identifier_names,deprecated_member_use_from_same_package,directives_ordering,library_prefixes,non_constant_identifier_names,prefer_final_fields,return_of_invalid_type,unnecessary_const,unnecessary_import,unnecessary_this,unused_import,unused_shown_name
 
 import 'dart:core' as $core;
 import 'dart:convert' as $convert;
@@ -15,35 +15,35 @@ const Empty$json = const {
 
 /// Descriptor for `Empty`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List emptyDescriptor = $convert.base64Decode('CgVFbXB0eQ==');
-@$core.Deprecated('Use regulationDescriptor instead')
-const Regulation$json = const {
-  '1': 'Regulation',
+@$core.Deprecated('Use docDescriptor instead')
+const Doc$json = const {
+  '1': 'Doc',
   '2': const [
     const {'1': 'ID', '3': 1, '4': 1, '5': 4, '10': 'ID'},
-    const {'1': 'RegulationName', '3': 2, '4': 1, '5': 9, '10': 'RegulationName'},
+    const {'1': 'DocName', '3': 2, '4': 1, '5': 9, '10': 'DocName'},
     const {'1': 'Abbreviation', '3': 3, '4': 1, '5': 9, '10': 'Abbreviation'},
     const {'1': 'Title', '3': 4, '4': 1, '5': 9, '10': 'Title'},
   ],
 };
 
-/// Descriptor for `Regulation`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List regulationDescriptor = $convert.base64Decode('CgpSZWd1bGF0aW9uEg4KAklEGAEgASgEUgJJRBImCg5SZWd1bGF0aW9uTmFtZRgCIAEoCVIOUmVndWxhdGlvbk5hbWUSIgoMQWJicmV2aWF0aW9uGAMgASgJUgxBYmJyZXZpYXRpb24SFAoFVGl0bGUYBCABKAlSBVRpdGxl');
-@$core.Deprecated('Use getAllRegulationsResponseDescriptor instead')
-const GetAllRegulationsResponse$json = const {
-  '1': 'GetAllRegulationsResponse',
+/// Descriptor for `Doc`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List docDescriptor = $convert.base64Decode('CgNEb2MSDgoCSUQYASABKARSAklEEhgKB0RvY05hbWUYAiABKAlSB0RvY05hbWUSIgoMQWJicmV2aWF0aW9uGAMgASgJUgxBYmJyZXZpYXRpb24SFAoFVGl0bGUYBCABKAlSBVRpdGxl');
+@$core.Deprecated('Use getAllDocsResponseDescriptor instead')
+const GetAllDocsResponse$json = const {
+  '1': 'GetAllDocsResponse',
   '2': const [
-    const {'1': 'Regulations', '3': 1, '4': 3, '5': 11, '6': '.master.v1.Regulation', '10': 'Regulations'},
+    const {'1': 'Docs', '3': 1, '4': 3, '5': 11, '6': '.master.v1.Doc', '10': 'Docs'},
   ],
 };
 
-/// Descriptor for `GetAllRegulationsResponse`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List getAllRegulationsResponseDescriptor = $convert.base64Decode('ChlHZXRBbGxSZWd1bGF0aW9uc1Jlc3BvbnNlEjcKC1JlZ3VsYXRpb25zGAEgAygLMhUubWFzdGVyLnYxLlJlZ3VsYXRpb25SC1JlZ3VsYXRpb25z');
+/// Descriptor for `GetAllDocsResponse`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List getAllDocsResponseDescriptor = $convert.base64Decode('ChJHZXRBbGxEb2NzUmVzcG9uc2USIgoERG9jcxgBIAMoCzIOLm1hc3Rlci52MS5Eb2NSBERvY3M=');
 @$core.Deprecated('Use createChapterRequestDescriptor instead')
 const CreateChapterRequest$json = const {
   '1': 'CreateChapterRequest',
   '2': const [
     const {'1': 'PseudoId', '3': 1, '4': 1, '5': 9, '10': 'PseudoId'},
-    const {'1': 'RegulationId', '3': 2, '4': 1, '5': 4, '10': 'RegulationId'},
+    const {'1': 'DocId', '3': 2, '4': 1, '5': 4, '10': 'DocId'},
     const {'1': 'ChapterName', '3': 3, '4': 1, '5': 9, '10': 'ChapterName'},
     const {'1': 'ChapterNum', '3': 4, '4': 1, '5': 9, '10': 'ChapterNum'},
     const {'1': 'OrderNum', '3': 5, '4': 1, '5': 13, '10': 'OrderNum'},
@@ -51,7 +51,7 @@ const CreateChapterRequest$json = const {
 };
 
 /// Descriptor for `CreateChapterRequest`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List createChapterRequestDescriptor = $convert.base64Decode('ChRDcmVhdGVDaGFwdGVyUmVxdWVzdBIaCghQc2V1ZG9JZBgBIAEoCVIIUHNldWRvSWQSIgoMUmVndWxhdGlvbklkGAIgASgEUgxSZWd1bGF0aW9uSWQSIAoLQ2hhcHRlck5hbWUYAyABKAlSC0NoYXB0ZXJOYW1lEh4KCkNoYXB0ZXJOdW0YBCABKAlSCkNoYXB0ZXJOdW0SGgoIT3JkZXJOdW0YBSABKA1SCE9yZGVyTnVt');
+final $typed_data.Uint8List createChapterRequestDescriptor = $convert.base64Decode('ChRDcmVhdGVDaGFwdGVyUmVxdWVzdBIaCghQc2V1ZG9JZBgBIAEoCVIIUHNldWRvSWQSFAoFRG9jSWQYAiABKARSBURvY0lkEiAKC0NoYXB0ZXJOYW1lGAMgASgJUgtDaGFwdGVyTmFtZRIeCgpDaGFwdGVyTnVtGAQgASgJUgpDaGFwdGVyTnVtEhoKCE9yZGVyTnVtGAUgASgNUghPcmRlck51bQ==');
 @$core.Deprecated('Use createChapterResponseDescriptor instead')
 const CreateChapterResponse$json = const {
   '1': 'CreateChapterResponse',
@@ -89,29 +89,29 @@ const CreateParagraphsRequest$json = const {
 
 /// Descriptor for `CreateParagraphsRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List createParagraphsRequestDescriptor = $convert.base64Decode('ChdDcmVhdGVQYXJhZ3JhcGhzUmVxdWVzdBI0CgpwYXJhZ3JhcGhzGAEgAygLMhQubWFzdGVyLnYxLlBhcmFncmFwaFIKcGFyYWdyYXBocw==');
-@$core.Deprecated('Use createRegulationRequestDescriptor instead')
-const CreateRegulationRequest$json = const {
-  '1': 'CreateRegulationRequest',
+@$core.Deprecated('Use createDocRequestDescriptor instead')
+const CreateDocRequest$json = const {
+  '1': 'CreateDocRequest',
   '2': const [
     const {'1': 'PseudoId', '3': 1, '4': 1, '5': 9, '10': 'PseudoId'},
-    const {'1': 'RegulationName', '3': 2, '4': 1, '5': 9, '10': 'RegulationName'},
+    const {'1': 'DocName', '3': 2, '4': 1, '5': 9, '10': 'DocName'},
     const {'1': 'Abbreviation', '3': 3, '4': 1, '5': 9, '10': 'Abbreviation'},
     const {'1': 'Title', '3': 4, '4': 1, '5': 9, '10': 'Title'},
   ],
 };
 
-/// Descriptor for `CreateRegulationRequest`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List createRegulationRequestDescriptor = $convert.base64Decode('ChdDcmVhdGVSZWd1bGF0aW9uUmVxdWVzdBIaCghQc2V1ZG9JZBgBIAEoCVIIUHNldWRvSWQSJgoOUmVndWxhdGlvbk5hbWUYAiABKAlSDlJlZ3VsYXRpb25OYW1lEiIKDEFiYnJldmlhdGlvbhgDIAEoCVIMQWJicmV2aWF0aW9uEhQKBVRpdGxlGAQgASgJUgVUaXRsZQ==');
-@$core.Deprecated('Use createRegulationResponseDescriptor instead')
-const CreateRegulationResponse$json = const {
-  '1': 'CreateRegulationResponse',
+/// Descriptor for `CreateDocRequest`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List createDocRequestDescriptor = $convert.base64Decode('ChBDcmVhdGVEb2NSZXF1ZXN0EhoKCFBzZXVkb0lkGAEgASgJUghQc2V1ZG9JZBIYCgdEb2NOYW1lGAIgASgJUgdEb2NOYW1lEiIKDEFiYnJldmlhdGlvbhgDIAEoCVIMQWJicmV2aWF0aW9uEhQKBVRpdGxlGAQgASgJUgVUaXRsZQ==');
+@$core.Deprecated('Use createDocResponseDescriptor instead')
+const CreateDocResponse$json = const {
+  '1': 'CreateDocResponse',
   '2': const [
     const {'1': 'ID', '3': 1, '4': 1, '5': 4, '10': 'ID'},
   ],
 };
 
-/// Descriptor for `CreateRegulationResponse`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List createRegulationResponseDescriptor = $convert.base64Decode('ChhDcmVhdGVSZWd1bGF0aW9uUmVzcG9uc2USDgoCSUQYASABKARSAklE');
+/// Descriptor for `CreateDocResponse`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List createDocResponseDescriptor = $convert.base64Decode('ChFDcmVhdGVEb2NSZXNwb25zZRIOCgJJRBgBIAEoBFICSUQ=');
 @$core.Deprecated('Use updateLinksRequestDescriptor instead')
 const UpdateLinksRequest$json = const {
   '1': 'UpdateLinksRequest',
@@ -132,16 +132,16 @@ const UpdateLinksResponse$json = const {
 
 /// Descriptor for `UpdateLinksResponse`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List updateLinksResponseDescriptor = $convert.base64Decode('ChNVcGRhdGVMaW5rc1Jlc3BvbnNlEg4KAklEGAEgASgEUgJJRA==');
-@$core.Deprecated('Use deleteRegulationRequestDescriptor instead')
-const DeleteRegulationRequest$json = const {
-  '1': 'DeleteRegulationRequest',
+@$core.Deprecated('Use deleteDocRequestDescriptor instead')
+const DeleteDocRequest$json = const {
+  '1': 'DeleteDocRequest',
   '2': const [
     const {'1': 'ID', '3': 1, '4': 1, '5': 4, '10': 'ID'},
   ],
 };
 
-/// Descriptor for `DeleteRegulationRequest`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List deleteRegulationRequestDescriptor = $convert.base64Decode('ChdEZWxldGVSZWd1bGF0aW9uUmVxdWVzdBIOCgJJRBgBIAEoBFICSUQ=');
+/// Descriptor for `DeleteDocRequest`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List deleteDocRequestDescriptor = $convert.base64Decode('ChBEZWxldGVEb2NSZXF1ZXN0Eg4KAklEGAEgASgEUgJJRA==');
 @$core.Deprecated('Use masterChapterDescriptor instead')
 const MasterChapter$json = const {
   '1': 'MasterChapter',
@@ -149,13 +149,13 @@ const MasterChapter$json = const {
     const {'1': 'ID', '3': 1, '4': 1, '5': 4, '10': 'ID'},
     const {'1': 'Name', '3': 2, '4': 1, '5': 9, '10': 'Name'},
     const {'1': 'Num', '3': 3, '4': 1, '5': 9, '10': 'Num'},
-    const {'1': 'RegulationID', '3': 4, '4': 1, '5': 4, '10': 'RegulationID'},
+    const {'1': 'DocID', '3': 4, '4': 1, '5': 4, '10': 'DocID'},
     const {'1': 'OrderNum', '3': 5, '4': 1, '5': 13, '10': 'OrderNum'},
   ],
 };
 
 /// Descriptor for `MasterChapter`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List masterChapterDescriptor = $convert.base64Decode('Cg1NYXN0ZXJDaGFwdGVyEg4KAklEGAEgASgEUgJJRBISCgROYW1lGAIgASgJUgROYW1lEhAKA051bRgDIAEoCVIDTnVtEiIKDFJlZ3VsYXRpb25JRBgEIAEoBFIMUmVndWxhdGlvbklEEhoKCE9yZGVyTnVtGAUgASgNUghPcmRlck51bQ==');
+final $typed_data.Uint8List masterChapterDescriptor = $convert.base64Decode('Cg1NYXN0ZXJDaGFwdGVyEg4KAklEGAEgASgEUgJJRBISCgROYW1lGAIgASgJUgROYW1lEhAKA051bRgDIAEoCVIDTnVtEhQKBURvY0lEGAQgASgEUgVEb2NJRBIaCghPcmRlck51bRgFIAEoDVIIT3JkZXJOdW0=');
 @$core.Deprecated('Use getAllChaptersRequestDescriptor instead')
 const GetAllChaptersRequest$json = const {
   '1': 'GetAllChaptersRequest',

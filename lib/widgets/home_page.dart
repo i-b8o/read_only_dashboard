@@ -3,9 +3,9 @@ import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'package:read_only_dashboard/widgets/all_absents.dart';
 import 'package:read_only_dashboard/widgets/edit_paragraph.dart';
-import 'all_regulation.dart';
+import 'all_doc.dart';
 
-enum _ViewModelContentState { regulations, absents, editParagraph, exit }
+enum _ViewModelContentState { docs, absents, editParagraph, exit }
 
 class _ViewModelState {
   _ViewModelState(this._viewModelContentState);
@@ -15,7 +15,7 @@ class _ViewModelState {
 }
 
 class _ViewModel extends ChangeNotifier {
-  _ViewModelState _state = _ViewModelState(_ViewModelContentState.regulations);
+  _ViewModelState _state = _ViewModelState(_ViewModelContentState.docs);
   _ViewModelState get state => _state;
 
   void changeContent(_ViewModelContentState c) {
@@ -46,8 +46,8 @@ class HomePage extends StatelessWidget {
         SystemChannels.platform.invokeMethod('SystemNavigator.pop');
         break;
       default:
-        final regulations = AllRegulationsWidget.create();
-        return regulations;
+        final docs = AllDocsWidget.create();
+        return docs;
     }
     return null;
   }
@@ -67,7 +67,7 @@ class HomePage extends StatelessWidget {
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: const [
-                _RegulationsBtnWidget(),
+                _DocsBtnWidget(),
                 _EditParagraphBtnWidget(),
                 _AbsentsBtnWidget(),
                 _ExitBtnWidget()
@@ -81,14 +81,14 @@ class HomePage extends StatelessWidget {
   }
 }
 
-class _RegulationsBtnWidget extends StatelessWidget {
-  const _RegulationsBtnWidget({
+class _DocsBtnWidget extends StatelessWidget {
+  const _DocsBtnWidget({
     Key? key,
   }) : super(key: key);
 
   void onPressed(BuildContext context) {
     final model = context.read<_ViewModel>();
-    model.changeContent(_ViewModelContentState.regulations);
+    model.changeContent(_ViewModelContentState.docs);
   }
 
   @override
@@ -128,7 +128,8 @@ class _EditParagraphBtnWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextButton(
-        onPressed: () => onPressed(context), child: const Text("Редактировать параграф"));
+        onPressed: () => onPressed(context),
+        child: const Text("Редактировать параграф"));
   }
 }
 

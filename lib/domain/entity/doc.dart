@@ -1,22 +1,22 @@
-class Regulation {
+class Doc {
   final int id;
-  final String regulationName;
+  final String docName;
   final String abbreviation;
   final String title;
-  Regulation(
+  Doc(
       {required this.id,
-      required this.regulationName,
+      required this.docName,
       required this.abbreviation,
       required this.title});
-  Regulation copyWith({
+  Doc copyWith({
     int? id,
-    String? regulationName,
+    String? docName,
     String? abbreviation,
     String? title,
   }) {
-    return Regulation(
+    return Doc(
         id: id ?? this.id,
-        regulationName: regulationName ?? this.regulationName,
+        docName: docName ?? this.docName,
         abbreviation: abbreviation ?? this.abbreviation,
         title: title ?? this.title);
   }

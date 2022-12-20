@@ -4,7 +4,7 @@ import 'master/master_service.pbgrpc.dart';
 
 class MasterClient {
   late final ClientChannel channel;
-  late final MasterRegulationGRPCClient regulationStub;
+  late final MasterDocGRPCClient docStub;
   // late final MasterChapterGRPCClient chapterStub;
   late final MasterParagraphGRPCClient paragraphStub;
 
@@ -14,7 +14,7 @@ class MasterClient {
       port: 30002,
       options: const ChannelOptions(credentials: ChannelCredentials.insecure()),
     );
-    regulationStub = MasterRegulationGRPCClient(channel);
+    docStub = MasterDocGRPCClient(channel);
     paragraphStub = MasterParagraphGRPCClient(channel);
   }
 }

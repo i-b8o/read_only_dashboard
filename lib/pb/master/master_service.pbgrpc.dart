@@ -3,7 +3,7 @@
 //  source: master/master_service.proto
 //
 // @dart = 2.12
-// ignore_for_file: annotate_overrides,camel_case_types,unnecessary_const,non_constant_identifier_names,library_prefixes,unused_import,unused_shown_name,return_of_invalid_type,unnecessary_this,prefer_final_fields
+// ignore_for_file: annotate_overrides,camel_case_types,constant_identifier_names,directives_ordering,library_prefixes,non_constant_identifier_names,prefer_final_fields,return_of_invalid_type,unnecessary_const,unnecessary_import,unnecessary_this,unused_import,unused_shown_name
 
 import 'dart:async' as $async;
 
@@ -13,54 +13,50 @@ import 'package:grpc/service_api.dart' as $grpc;
 import 'master_service.pb.dart' as $0;
 export 'master_service.pb.dart';
 
-class MasterRegulationGRPCClient extends $grpc.Client {
-  static final _$create = $grpc.ClientMethod<$0.CreateRegulationRequest,
-          $0.CreateRegulationResponse>(
-      '/master.v1.MasterRegulationGRPC/Create',
-      ($0.CreateRegulationRequest value) => value.writeToBuffer(),
-      ($core.List<$core.int> value) =>
-          $0.CreateRegulationResponse.fromBuffer(value));
-  static final _$getAll =
-      $grpc.ClientMethod<$0.Empty, $0.GetAllRegulationsResponse>(
-          '/master.v1.MasterRegulationGRPC/GetAll',
-          ($0.Empty value) => value.writeToBuffer(),
+class MasterDocGRPCClient extends $grpc.Client {
+  static final _$create =
+      $grpc.ClientMethod<$0.CreateDocRequest, $0.CreateDocResponse>(
+          '/master.v1.MasterDocGRPC/Create',
+          ($0.CreateDocRequest value) => value.writeToBuffer(),
           ($core.List<$core.int> value) =>
-              $0.GetAllRegulationsResponse.fromBuffer(value));
-  static final _$delete =
-      $grpc.ClientMethod<$0.DeleteRegulationRequest, $0.Empty>(
-          '/master.v1.MasterRegulationGRPC/Delete',
-          ($0.DeleteRegulationRequest value) => value.writeToBuffer(),
-          ($core.List<$core.int> value) => $0.Empty.fromBuffer(value));
+              $0.CreateDocResponse.fromBuffer(value));
+  static final _$getAll = $grpc.ClientMethod<$0.Empty, $0.GetAllDocsResponse>(
+      '/master.v1.MasterDocGRPC/GetAll',
+      ($0.Empty value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $0.GetAllDocsResponse.fromBuffer(value));
+  static final _$delete = $grpc.ClientMethod<$0.DeleteDocRequest, $0.Empty>(
+      '/master.v1.MasterDocGRPC/Delete',
+      ($0.DeleteDocRequest value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $0.Empty.fromBuffer(value));
   static final _$updateLinks =
       $grpc.ClientMethod<$0.UpdateLinksRequest, $0.UpdateLinksResponse>(
-          '/master.v1.MasterRegulationGRPC/UpdateLinks',
+          '/master.v1.MasterDocGRPC/UpdateLinks',
           ($0.UpdateLinksRequest value) => value.writeToBuffer(),
           ($core.List<$core.int> value) =>
               $0.UpdateLinksResponse.fromBuffer(value));
   static final _$getAbsents =
       $grpc.ClientMethod<$0.Empty, $0.GetAbsentsResponse>(
-          '/master.v1.MasterRegulationGRPC/GetAbsents',
+          '/master.v1.MasterDocGRPC/GetAbsents',
           ($0.Empty value) => value.writeToBuffer(),
           ($core.List<$core.int> value) =>
               $0.GetAbsentsResponse.fromBuffer(value));
 
-  MasterRegulationGRPCClient($grpc.ClientChannel channel,
+  MasterDocGRPCClient($grpc.ClientChannel channel,
       {$grpc.CallOptions? options,
       $core.Iterable<$grpc.ClientInterceptor>? interceptors})
       : super(channel, options: options, interceptors: interceptors);
 
-  $grpc.ResponseFuture<$0.CreateRegulationResponse> create(
-      $0.CreateRegulationRequest request,
+  $grpc.ResponseFuture<$0.CreateDocResponse> create($0.CreateDocRequest request,
       {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$create, request, options: options);
   }
 
-  $grpc.ResponseFuture<$0.GetAllRegulationsResponse> getAll($0.Empty request,
+  $grpc.ResponseFuture<$0.GetAllDocsResponse> getAll($0.Empty request,
       {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$getAll, request, options: options);
   }
 
-  $grpc.ResponseFuture<$0.Empty> delete($0.DeleteRegulationRequest request,
+  $grpc.ResponseFuture<$0.Empty> delete($0.DeleteDocRequest request,
       {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$delete, request, options: options);
   }
@@ -77,33 +73,30 @@ class MasterRegulationGRPCClient extends $grpc.Client {
   }
 }
 
-abstract class MasterRegulationGRPCServiceBase extends $grpc.Service {
-  $core.String get $name => 'master.v1.MasterRegulationGRPC';
+abstract class MasterDocGRPCServiceBase extends $grpc.Service {
+  $core.String get $name => 'master.v1.MasterDocGRPC';
 
-  MasterRegulationGRPCServiceBase() {
-    $addMethod($grpc.ServiceMethod<$0.CreateRegulationRequest,
-            $0.CreateRegulationResponse>(
+  MasterDocGRPCServiceBase() {
+    $addMethod($grpc.ServiceMethod<$0.CreateDocRequest, $0.CreateDocResponse>(
         'Create',
         create_Pre,
         false,
         false,
-        ($core.List<$core.int> value) =>
-            $0.CreateRegulationRequest.fromBuffer(value),
-        ($0.CreateRegulationResponse value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$0.Empty, $0.GetAllRegulationsResponse>(
+        ($core.List<$core.int> value) => $0.CreateDocRequest.fromBuffer(value),
+        ($0.CreateDocResponse value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.Empty, $0.GetAllDocsResponse>(
         'GetAll',
         getAll_Pre,
         false,
         false,
         ($core.List<$core.int> value) => $0.Empty.fromBuffer(value),
-        ($0.GetAllRegulationsResponse value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$0.DeleteRegulationRequest, $0.Empty>(
+        ($0.GetAllDocsResponse value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.DeleteDocRequest, $0.Empty>(
         'Delete',
         delete_Pre,
         false,
         false,
-        ($core.List<$core.int> value) =>
-            $0.DeleteRegulationRequest.fromBuffer(value),
+        ($core.List<$core.int> value) => $0.DeleteDocRequest.fromBuffer(value),
         ($0.Empty value) => value.writeToBuffer()));
     $addMethod(
         $grpc.ServiceMethod<$0.UpdateLinksRequest, $0.UpdateLinksResponse>(
@@ -123,18 +116,18 @@ abstract class MasterRegulationGRPCServiceBase extends $grpc.Service {
         ($0.GetAbsentsResponse value) => value.writeToBuffer()));
   }
 
-  $async.Future<$0.CreateRegulationResponse> create_Pre($grpc.ServiceCall call,
-      $async.Future<$0.CreateRegulationRequest> request) async {
+  $async.Future<$0.CreateDocResponse> create_Pre($grpc.ServiceCall call,
+      $async.Future<$0.CreateDocRequest> request) async {
     return create(call, await request);
   }
 
-  $async.Future<$0.GetAllRegulationsResponse> getAll_Pre(
+  $async.Future<$0.GetAllDocsResponse> getAll_Pre(
       $grpc.ServiceCall call, $async.Future<$0.Empty> request) async {
     return getAll(call, await request);
   }
 
   $async.Future<$0.Empty> delete_Pre($grpc.ServiceCall call,
-      $async.Future<$0.DeleteRegulationRequest> request) async {
+      $async.Future<$0.DeleteDocRequest> request) async {
     return delete(call, await request);
   }
 
@@ -148,12 +141,12 @@ abstract class MasterRegulationGRPCServiceBase extends $grpc.Service {
     return getAbsents(call, await request);
   }
 
-  $async.Future<$0.CreateRegulationResponse> create(
-      $grpc.ServiceCall call, $0.CreateRegulationRequest request);
-  $async.Future<$0.GetAllRegulationsResponse> getAll(
+  $async.Future<$0.CreateDocResponse> create(
+      $grpc.ServiceCall call, $0.CreateDocRequest request);
+  $async.Future<$0.GetAllDocsResponse> getAll(
       $grpc.ServiceCall call, $0.Empty request);
   $async.Future<$0.Empty> delete(
-      $grpc.ServiceCall call, $0.DeleteRegulationRequest request);
+      $grpc.ServiceCall call, $0.DeleteDocRequest request);
   $async.Future<$0.UpdateLinksResponse> updateLinks(
       $grpc.ServiceCall call, $0.UpdateLinksRequest request);
   $async.Future<$0.GetAbsentsResponse> getAbsents(

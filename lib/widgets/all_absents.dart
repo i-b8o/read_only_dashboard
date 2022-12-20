@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter/services.dart';
 
-import '../data_providers/regulation.dart';
+import '../data_providers/doc.dart';
 import '../domain/entity/absent.dart';
-import '../domain/services/regulation.dart';
+import '../domain/services/doc.dart';
 import 'error.dart';
 
 class _ViewModelState {
@@ -18,7 +18,7 @@ class _ViewModel extends ChangeNotifier {
     updateState();
   }
 
-  final _regulationService = RegulationService();
+  final _docService = DocService();
 
   var _state = _ViewModelState();
   _ViewModelState get state => _state;
@@ -29,23 +29,23 @@ class _ViewModel extends ChangeNotifier {
 
   void _loadAbsents() async {
     try {
-      await _regulationService.loadAbsents();
-      final regulations = _regulationService.absents;
+      await _docService.loadAbsents();
+      final docs = _docService.absents;
 
       _state = _ViewModelState(
-        absents: regulations,
+        absents: docs,
       );
-    } on RegulationProviderError {
+    } on DocProviderError {
       _state.errorTitle = "ошибка подключения к серверу";
     }
     notifyListeners();
   }
 
-  void deleteRegulation(int id) async {
+  void deleteDoc(int id) async {
     try {
-      await _regulationService.delete(id);
+      await _docService.delete(id);
       updateState();
-    } on RegulationProviderError {
+    } on DocProviderError {
       _state.errorTitle = "ошибка подключения к серверу";
       notifyListeners();
     }

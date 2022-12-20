@@ -3,7 +3,7 @@
 //  source: master/master_service.proto
 //
 // @dart = 2.12
-// ignore_for_file: annotate_overrides,camel_case_types,unnecessary_const,non_constant_identifier_names,library_prefixes,unused_import,unused_shown_name,return_of_invalid_type,unnecessary_this,prefer_final_fields
+// ignore_for_file: annotate_overrides,camel_case_types,constant_identifier_names,directives_ordering,library_prefixes,non_constant_identifier_names,prefer_final_fields,return_of_invalid_type,unnecessary_const,unnecessary_import,unnecessary_this,unused_import,unused_shown_name
 
 import 'dart:core' as $core;
 
@@ -39,19 +39,19 @@ class Empty extends $pb.GeneratedMessage {
   static Empty? _defaultInstance;
 }
 
-class Regulation extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'Regulation', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'master.v1'), createEmptyInstance: create)
+class Doc extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'Doc', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'master.v1'), createEmptyInstance: create)
     ..a<$fixnum.Int64>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'ID', $pb.PbFieldType.OU6, protoName: 'ID', defaultOrMaker: $fixnum.Int64.ZERO)
-    ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'RegulationName', protoName: 'RegulationName')
+    ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'DocName', protoName: 'DocName')
     ..aOS(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'Abbreviation', protoName: 'Abbreviation')
     ..aOS(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'Title', protoName: 'Title')
     ..hasRequiredFields = false
   ;
 
-  Regulation._() : super();
-  factory Regulation({
+  Doc._() : super();
+  factory Doc({
     $fixnum.Int64? iD,
-    $core.String? regulationName,
+    $core.String? docName,
     $core.String? abbreviation,
     $core.String? title,
   }) {
@@ -59,8 +59,8 @@ class Regulation extends $pb.GeneratedMessage {
     if (iD != null) {
       _result.iD = iD;
     }
-    if (regulationName != null) {
-      _result.regulationName = regulationName;
+    if (docName != null) {
+      _result.docName = docName;
     }
     if (abbreviation != null) {
       _result.abbreviation = abbreviation;
@@ -70,26 +70,26 @@ class Regulation extends $pb.GeneratedMessage {
     }
     return _result;
   }
-  factory Regulation.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory Regulation.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  factory Doc.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory Doc.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
   'Will be removed in next major version')
-  Regulation clone() => Regulation()..mergeFromMessage(this);
+  Doc clone() => Doc()..mergeFromMessage(this);
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  Regulation copyWith(void Function(Regulation) updates) => super.copyWith((message) => updates(message as Regulation)) as Regulation; // ignore: deprecated_member_use
+  Doc copyWith(void Function(Doc) updates) => super.copyWith((message) => updates(message as Doc)) as Doc; // ignore: deprecated_member_use
   $pb.BuilderInfo get info_ => _i;
   @$core.pragma('dart2js:noInline')
-  static Regulation create() => Regulation._();
-  Regulation createEmptyInstance() => create();
-  static $pb.PbList<Regulation> createRepeated() => $pb.PbList<Regulation>();
+  static Doc create() => Doc._();
+  Doc createEmptyInstance() => create();
+  static $pb.PbList<Doc> createRepeated() => $pb.PbList<Doc>();
   @$core.pragma('dart2js:noInline')
-  static Regulation getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Regulation>(create);
-  static Regulation? _defaultInstance;
+  static Doc getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Doc>(create);
+  static Doc? _defaultInstance;
 
   @$pb.TagNumber(1)
   $fixnum.Int64 get iD => $_getI64(0);
@@ -101,13 +101,13 @@ class Regulation extends $pb.GeneratedMessage {
   void clearID() => clearField(1);
 
   @$pb.TagNumber(2)
-  $core.String get regulationName => $_getSZ(1);
+  $core.String get docName => $_getSZ(1);
   @$pb.TagNumber(2)
-  set regulationName($core.String v) { $_setString(1, v); }
+  set docName($core.String v) { $_setString(1, v); }
   @$pb.TagNumber(2)
-  $core.bool hasRegulationName() => $_has(1);
+  $core.bool hasDocName() => $_has(1);
   @$pb.TagNumber(2)
-  void clearRegulationName() => clearField(2);
+  void clearDocName() => clearField(2);
 
   @$pb.TagNumber(3)
   $core.String get abbreviation => $_getSZ(2);
@@ -128,51 +128,51 @@ class Regulation extends $pb.GeneratedMessage {
   void clearTitle() => clearField(4);
 }
 
-class GetAllRegulationsResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'GetAllRegulationsResponse', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'master.v1'), createEmptyInstance: create)
-    ..pc<Regulation>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'Regulations', $pb.PbFieldType.PM, protoName: 'Regulations', subBuilder: Regulation.create)
+class GetAllDocsResponse extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'GetAllDocsResponse', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'master.v1'), createEmptyInstance: create)
+    ..pc<Doc>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'Docs', $pb.PbFieldType.PM, protoName: 'Docs', subBuilder: Doc.create)
     ..hasRequiredFields = false
   ;
 
-  GetAllRegulationsResponse._() : super();
-  factory GetAllRegulationsResponse({
-    $core.Iterable<Regulation>? regulations,
+  GetAllDocsResponse._() : super();
+  factory GetAllDocsResponse({
+    $core.Iterable<Doc>? docs,
   }) {
     final _result = create();
-    if (regulations != null) {
-      _result.regulations.addAll(regulations);
+    if (docs != null) {
+      _result.docs.addAll(docs);
     }
     return _result;
   }
-  factory GetAllRegulationsResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory GetAllRegulationsResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  factory GetAllDocsResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory GetAllDocsResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
   'Will be removed in next major version')
-  GetAllRegulationsResponse clone() => GetAllRegulationsResponse()..mergeFromMessage(this);
+  GetAllDocsResponse clone() => GetAllDocsResponse()..mergeFromMessage(this);
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  GetAllRegulationsResponse copyWith(void Function(GetAllRegulationsResponse) updates) => super.copyWith((message) => updates(message as GetAllRegulationsResponse)) as GetAllRegulationsResponse; // ignore: deprecated_member_use
+  GetAllDocsResponse copyWith(void Function(GetAllDocsResponse) updates) => super.copyWith((message) => updates(message as GetAllDocsResponse)) as GetAllDocsResponse; // ignore: deprecated_member_use
   $pb.BuilderInfo get info_ => _i;
   @$core.pragma('dart2js:noInline')
-  static GetAllRegulationsResponse create() => GetAllRegulationsResponse._();
-  GetAllRegulationsResponse createEmptyInstance() => create();
-  static $pb.PbList<GetAllRegulationsResponse> createRepeated() => $pb.PbList<GetAllRegulationsResponse>();
+  static GetAllDocsResponse create() => GetAllDocsResponse._();
+  GetAllDocsResponse createEmptyInstance() => create();
+  static $pb.PbList<GetAllDocsResponse> createRepeated() => $pb.PbList<GetAllDocsResponse>();
   @$core.pragma('dart2js:noInline')
-  static GetAllRegulationsResponse getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<GetAllRegulationsResponse>(create);
-  static GetAllRegulationsResponse? _defaultInstance;
+  static GetAllDocsResponse getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<GetAllDocsResponse>(create);
+  static GetAllDocsResponse? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.List<Regulation> get regulations => $_getList(0);
+  $core.List<Doc> get docs => $_getList(0);
 }
 
 class CreateChapterRequest extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'CreateChapterRequest', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'master.v1'), createEmptyInstance: create)
     ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'PseudoId', protoName: 'PseudoId')
-    ..a<$fixnum.Int64>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'RegulationId', $pb.PbFieldType.OU6, protoName: 'RegulationId', defaultOrMaker: $fixnum.Int64.ZERO)
+    ..a<$fixnum.Int64>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'DocId', $pb.PbFieldType.OU6, protoName: 'DocId', defaultOrMaker: $fixnum.Int64.ZERO)
     ..aOS(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'ChapterName', protoName: 'ChapterName')
     ..aOS(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'ChapterNum', protoName: 'ChapterNum')
     ..a<$core.int>(5, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'OrderNum', $pb.PbFieldType.OU3, protoName: 'OrderNum')
@@ -182,7 +182,7 @@ class CreateChapterRequest extends $pb.GeneratedMessage {
   CreateChapterRequest._() : super();
   factory CreateChapterRequest({
     $core.String? pseudoId,
-    $fixnum.Int64? regulationId,
+    $fixnum.Int64? docId,
     $core.String? chapterName,
     $core.String? chapterNum,
     $core.int? orderNum,
@@ -191,8 +191,8 @@ class CreateChapterRequest extends $pb.GeneratedMessage {
     if (pseudoId != null) {
       _result.pseudoId = pseudoId;
     }
-    if (regulationId != null) {
-      _result.regulationId = regulationId;
+    if (docId != null) {
+      _result.docId = docId;
     }
     if (chapterName != null) {
       _result.chapterName = chapterName;
@@ -236,13 +236,13 @@ class CreateChapterRequest extends $pb.GeneratedMessage {
   void clearPseudoId() => clearField(1);
 
   @$pb.TagNumber(2)
-  $fixnum.Int64 get regulationId => $_getI64(1);
+  $fixnum.Int64 get docId => $_getI64(1);
   @$pb.TagNumber(2)
-  set regulationId($fixnum.Int64 v) { $_setInt64(1, v); }
+  set docId($fixnum.Int64 v) { $_setInt64(1, v); }
   @$pb.TagNumber(2)
-  $core.bool hasRegulationId() => $_has(1);
+  $core.bool hasDocId() => $_has(1);
   @$pb.TagNumber(2)
-  void clearRegulationId() => clearField(2);
+  void clearDocId() => clearField(2);
 
   @$pb.TagNumber(3)
   $core.String get chapterName => $_getSZ(2);
@@ -505,19 +505,19 @@ class CreateParagraphsRequest extends $pb.GeneratedMessage {
   $core.List<Paragraph> get paragraphs => $_getList(0);
 }
 
-class CreateRegulationRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'CreateRegulationRequest', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'master.v1'), createEmptyInstance: create)
+class CreateDocRequest extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'CreateDocRequest', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'master.v1'), createEmptyInstance: create)
     ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'PseudoId', protoName: 'PseudoId')
-    ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'RegulationName', protoName: 'RegulationName')
+    ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'DocName', protoName: 'DocName')
     ..aOS(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'Abbreviation', protoName: 'Abbreviation')
     ..aOS(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'Title', protoName: 'Title')
     ..hasRequiredFields = false
   ;
 
-  CreateRegulationRequest._() : super();
-  factory CreateRegulationRequest({
+  CreateDocRequest._() : super();
+  factory CreateDocRequest({
     $core.String? pseudoId,
-    $core.String? regulationName,
+    $core.String? docName,
     $core.String? abbreviation,
     $core.String? title,
   }) {
@@ -525,8 +525,8 @@ class CreateRegulationRequest extends $pb.GeneratedMessage {
     if (pseudoId != null) {
       _result.pseudoId = pseudoId;
     }
-    if (regulationName != null) {
-      _result.regulationName = regulationName;
+    if (docName != null) {
+      _result.docName = docName;
     }
     if (abbreviation != null) {
       _result.abbreviation = abbreviation;
@@ -536,26 +536,26 @@ class CreateRegulationRequest extends $pb.GeneratedMessage {
     }
     return _result;
   }
-  factory CreateRegulationRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory CreateRegulationRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  factory CreateDocRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory CreateDocRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
   'Will be removed in next major version')
-  CreateRegulationRequest clone() => CreateRegulationRequest()..mergeFromMessage(this);
+  CreateDocRequest clone() => CreateDocRequest()..mergeFromMessage(this);
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  CreateRegulationRequest copyWith(void Function(CreateRegulationRequest) updates) => super.copyWith((message) => updates(message as CreateRegulationRequest)) as CreateRegulationRequest; // ignore: deprecated_member_use
+  CreateDocRequest copyWith(void Function(CreateDocRequest) updates) => super.copyWith((message) => updates(message as CreateDocRequest)) as CreateDocRequest; // ignore: deprecated_member_use
   $pb.BuilderInfo get info_ => _i;
   @$core.pragma('dart2js:noInline')
-  static CreateRegulationRequest create() => CreateRegulationRequest._();
-  CreateRegulationRequest createEmptyInstance() => create();
-  static $pb.PbList<CreateRegulationRequest> createRepeated() => $pb.PbList<CreateRegulationRequest>();
+  static CreateDocRequest create() => CreateDocRequest._();
+  CreateDocRequest createEmptyInstance() => create();
+  static $pb.PbList<CreateDocRequest> createRepeated() => $pb.PbList<CreateDocRequest>();
   @$core.pragma('dart2js:noInline')
-  static CreateRegulationRequest getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<CreateRegulationRequest>(create);
-  static CreateRegulationRequest? _defaultInstance;
+  static CreateDocRequest getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<CreateDocRequest>(create);
+  static CreateDocRequest? _defaultInstance;
 
   @$pb.TagNumber(1)
   $core.String get pseudoId => $_getSZ(0);
@@ -567,13 +567,13 @@ class CreateRegulationRequest extends $pb.GeneratedMessage {
   void clearPseudoId() => clearField(1);
 
   @$pb.TagNumber(2)
-  $core.String get regulationName => $_getSZ(1);
+  $core.String get docName => $_getSZ(1);
   @$pb.TagNumber(2)
-  set regulationName($core.String v) { $_setString(1, v); }
+  set docName($core.String v) { $_setString(1, v); }
   @$pb.TagNumber(2)
-  $core.bool hasRegulationName() => $_has(1);
+  $core.bool hasDocName() => $_has(1);
   @$pb.TagNumber(2)
-  void clearRegulationName() => clearField(2);
+  void clearDocName() => clearField(2);
 
   @$pb.TagNumber(3)
   $core.String get abbreviation => $_getSZ(2);
@@ -594,14 +594,14 @@ class CreateRegulationRequest extends $pb.GeneratedMessage {
   void clearTitle() => clearField(4);
 }
 
-class CreateRegulationResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'CreateRegulationResponse', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'master.v1'), createEmptyInstance: create)
+class CreateDocResponse extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'CreateDocResponse', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'master.v1'), createEmptyInstance: create)
     ..a<$fixnum.Int64>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'ID', $pb.PbFieldType.OU6, protoName: 'ID', defaultOrMaker: $fixnum.Int64.ZERO)
     ..hasRequiredFields = false
   ;
 
-  CreateRegulationResponse._() : super();
-  factory CreateRegulationResponse({
+  CreateDocResponse._() : super();
+  factory CreateDocResponse({
     $fixnum.Int64? iD,
   }) {
     final _result = create();
@@ -610,26 +610,26 @@ class CreateRegulationResponse extends $pb.GeneratedMessage {
     }
     return _result;
   }
-  factory CreateRegulationResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory CreateRegulationResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  factory CreateDocResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory CreateDocResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
   'Will be removed in next major version')
-  CreateRegulationResponse clone() => CreateRegulationResponse()..mergeFromMessage(this);
+  CreateDocResponse clone() => CreateDocResponse()..mergeFromMessage(this);
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  CreateRegulationResponse copyWith(void Function(CreateRegulationResponse) updates) => super.copyWith((message) => updates(message as CreateRegulationResponse)) as CreateRegulationResponse; // ignore: deprecated_member_use
+  CreateDocResponse copyWith(void Function(CreateDocResponse) updates) => super.copyWith((message) => updates(message as CreateDocResponse)) as CreateDocResponse; // ignore: deprecated_member_use
   $pb.BuilderInfo get info_ => _i;
   @$core.pragma('dart2js:noInline')
-  static CreateRegulationResponse create() => CreateRegulationResponse._();
-  CreateRegulationResponse createEmptyInstance() => create();
-  static $pb.PbList<CreateRegulationResponse> createRepeated() => $pb.PbList<CreateRegulationResponse>();
+  static CreateDocResponse create() => CreateDocResponse._();
+  CreateDocResponse createEmptyInstance() => create();
+  static $pb.PbList<CreateDocResponse> createRepeated() => $pb.PbList<CreateDocResponse>();
   @$core.pragma('dart2js:noInline')
-  static CreateRegulationResponse getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<CreateRegulationResponse>(create);
-  static CreateRegulationResponse? _defaultInstance;
+  static CreateDocResponse getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<CreateDocResponse>(create);
+  static CreateDocResponse? _defaultInstance;
 
   @$pb.TagNumber(1)
   $fixnum.Int64 get iD => $_getI64(0);
@@ -735,14 +735,14 @@ class UpdateLinksResponse extends $pb.GeneratedMessage {
   void clearID() => clearField(1);
 }
 
-class DeleteRegulationRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'DeleteRegulationRequest', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'master.v1'), createEmptyInstance: create)
+class DeleteDocRequest extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'DeleteDocRequest', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'master.v1'), createEmptyInstance: create)
     ..a<$fixnum.Int64>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'ID', $pb.PbFieldType.OU6, protoName: 'ID', defaultOrMaker: $fixnum.Int64.ZERO)
     ..hasRequiredFields = false
   ;
 
-  DeleteRegulationRequest._() : super();
-  factory DeleteRegulationRequest({
+  DeleteDocRequest._() : super();
+  factory DeleteDocRequest({
     $fixnum.Int64? iD,
   }) {
     final _result = create();
@@ -751,26 +751,26 @@ class DeleteRegulationRequest extends $pb.GeneratedMessage {
     }
     return _result;
   }
-  factory DeleteRegulationRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory DeleteRegulationRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  factory DeleteDocRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory DeleteDocRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
   'Will be removed in next major version')
-  DeleteRegulationRequest clone() => DeleteRegulationRequest()..mergeFromMessage(this);
+  DeleteDocRequest clone() => DeleteDocRequest()..mergeFromMessage(this);
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  DeleteRegulationRequest copyWith(void Function(DeleteRegulationRequest) updates) => super.copyWith((message) => updates(message as DeleteRegulationRequest)) as DeleteRegulationRequest; // ignore: deprecated_member_use
+  DeleteDocRequest copyWith(void Function(DeleteDocRequest) updates) => super.copyWith((message) => updates(message as DeleteDocRequest)) as DeleteDocRequest; // ignore: deprecated_member_use
   $pb.BuilderInfo get info_ => _i;
   @$core.pragma('dart2js:noInline')
-  static DeleteRegulationRequest create() => DeleteRegulationRequest._();
-  DeleteRegulationRequest createEmptyInstance() => create();
-  static $pb.PbList<DeleteRegulationRequest> createRepeated() => $pb.PbList<DeleteRegulationRequest>();
+  static DeleteDocRequest create() => DeleteDocRequest._();
+  DeleteDocRequest createEmptyInstance() => create();
+  static $pb.PbList<DeleteDocRequest> createRepeated() => $pb.PbList<DeleteDocRequest>();
   @$core.pragma('dart2js:noInline')
-  static DeleteRegulationRequest getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<DeleteRegulationRequest>(create);
-  static DeleteRegulationRequest? _defaultInstance;
+  static DeleteDocRequest getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<DeleteDocRequest>(create);
+  static DeleteDocRequest? _defaultInstance;
 
   @$pb.TagNumber(1)
   $fixnum.Int64 get iD => $_getI64(0);
@@ -787,7 +787,7 @@ class MasterChapter extends $pb.GeneratedMessage {
     ..a<$fixnum.Int64>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'ID', $pb.PbFieldType.OU6, protoName: 'ID', defaultOrMaker: $fixnum.Int64.ZERO)
     ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'Name', protoName: 'Name')
     ..aOS(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'Num', protoName: 'Num')
-    ..a<$fixnum.Int64>(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'RegulationID', $pb.PbFieldType.OU6, protoName: 'RegulationID', defaultOrMaker: $fixnum.Int64.ZERO)
+    ..a<$fixnum.Int64>(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'DocID', $pb.PbFieldType.OU6, protoName: 'DocID', defaultOrMaker: $fixnum.Int64.ZERO)
     ..a<$core.int>(5, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'OrderNum', $pb.PbFieldType.OU3, protoName: 'OrderNum')
     ..hasRequiredFields = false
   ;
@@ -797,7 +797,7 @@ class MasterChapter extends $pb.GeneratedMessage {
     $fixnum.Int64? iD,
     $core.String? name,
     $core.String? num,
-    $fixnum.Int64? regulationID,
+    $fixnum.Int64? docID,
     $core.int? orderNum,
   }) {
     final _result = create();
@@ -810,8 +810,8 @@ class MasterChapter extends $pb.GeneratedMessage {
     if (num != null) {
       _result.num = num;
     }
-    if (regulationID != null) {
-      _result.regulationID = regulationID;
+    if (docID != null) {
+      _result.docID = docID;
     }
     if (orderNum != null) {
       _result.orderNum = orderNum;
@@ -867,13 +867,13 @@ class MasterChapter extends $pb.GeneratedMessage {
   void clearNum() => clearField(3);
 
   @$pb.TagNumber(4)
-  $fixnum.Int64 get regulationID => $_getI64(3);
+  $fixnum.Int64 get docID => $_getI64(3);
   @$pb.TagNumber(4)
-  set regulationID($fixnum.Int64 v) { $_setInt64(3, v); }
+  set docID($fixnum.Int64 v) { $_setInt64(3, v); }
   @$pb.TagNumber(4)
-  $core.bool hasRegulationID() => $_has(3);
+  $core.bool hasDocID() => $_has(3);
   @$pb.TagNumber(4)
-  void clearRegulationID() => clearField(4);
+  void clearDocID() => clearField(4);
 
   @$pb.TagNumber(5)
   $core.int get orderNum => $_getIZ(4);

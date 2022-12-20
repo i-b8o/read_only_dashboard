@@ -1,15 +1,15 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:read_only_dashboard/data_providers/regulation.dart';
-import 'package:read_only_dashboard/domain/entity/regulation.dart';
-import 'package:read_only_dashboard/domain/services/regulation.dart';
+import 'package:read_only_dashboard/data_providers/doc.dart';
+import 'package:read_only_dashboard/domain/entity/doc.dart';
+import 'package:read_only_dashboard/domain/services/doc.dart';
 import 'package:read_only_dashboard/widgets/error.dart';
 
 class _ViewModelState {
   String errorTitle = '';
-  final List<Regulation>? regulations;
-  _ViewModelState({this.regulations});
+  final List<Doc>? docs;
+  _ViewModelState({this.docs});
 }
 
 class _ViewModel extends ChangeNotifier {
@@ -17,31 +17,31 @@ class _ViewModel extends ChangeNotifier {
     updateState();
   }
 
-  final _regulationService = RegulationService();
+  final _docService = DocService();
 
   var _state = _ViewModelState();
   _ViewModelState get state => _state;
 
   void updateState() {
-    _loadRegulations();
+    _loadDocs();
   }
 
-  void _loadRegulations() async {
+  void _loadDocs() async {
     try {
-      await _regulationService.loadRegulations();
-      final regulations = _regulationService.regulations;
+      await _docService.loadDocs();
+      final docs = _docService.docs;
       _state = _ViewModelState(
-        regulations: regulations,
+        docs: docs,
       );
-    } on RegulationProviderError {
+    } on DocProviderError {
       _state.errorTitle = "ошибка подключения к серверу";
     }
     notifyListeners();
   }
 
-  void deleteRegulation(int id) async {
+  void deleteDoc(int id) async {
     try {
-      await _regulationService.delete(id);
+      await _docService.delete(id);
       updateState();
     } catch (e) {
       _state.errorTitle = "ошибка подключения к серверу";
@@ -50,20 +50,20 @@ class _ViewModel extends ChangeNotifier {
   }
 }
 
-class AllRegulationsWidget extends StatelessWidget {
-  const AllRegulationsWidget({super.key});
+class AllDocsWidget extends StatelessWidget {
+  const AllDocsWidget({super.key});
 
   static Widget create() {
     return ChangeNotifierProvider(
       create: (_) => _ViewModel(),
-      child: const AllRegulationsWidget(),
+      child: const AllDocsWidget(),
     );
   }
 
   @override
   Widget build(BuildContext context) {
     final model = context.read<_ViewModel>();
-        final errorTitle =
+    final errorTitle =
         context.select((_ViewModel value) => value.state.errorTitle);
 
     return Expanded(
@@ -97,8 +97,7 @@ class _DataTable extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    List<Regulation> regulations =
-        context.select((_ViewModel vm) => vm.state.regulations) ?? [];
+    List<Doc> docs = context.select((_ViewModel vm) => vm.state.docs) ?? [];
     return DataTable(
       columns: const [
         DataColumn(
@@ -110,24 +109,22 @@ class _DataTable extends StatelessWidget {
         DataColumn(
             label: Text('Заголовок',
                 style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold))),
-      
         DataColumn(
             label: Text('Удалить',
                 style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold))),
       ],
-      rows: regulations
+      rows: docs
           .map((e) => DataRow(
                 cells: [
                   DataCell(
                     Text(e.abbreviation),
                   ),
                   DataCell(
-                    Text(e.regulationName),
+                    Text(e.docName),
                   ),
                   DataCell(
                     Text(e.title),
                   ),
-                 
                   DataCell(
                     _RemoveBtn(id: e.id),
                   ),
@@ -148,7 +145,7 @@ class _RemoveBtn extends StatelessWidget {
 
   confirm(BuildContext context) {
     final model = context.read<_ViewModel>();
-    model.deleteRegulation(id);
+    model.deleteDoc(id);
     Navigator.pop(context);
   }
 
