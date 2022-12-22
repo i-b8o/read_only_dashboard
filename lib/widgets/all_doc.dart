@@ -123,7 +123,7 @@ class _DataTable extends StatelessWidget {
                     Text(e.docName),
                   ),
                   DataCell(
-                    Text(e.title),
+                    Text(e.header),
                   ),
                   DataCell(
                     _RemoveBtn(id: e.id),

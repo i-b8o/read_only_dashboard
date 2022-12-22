@@ -38,7 +38,7 @@ class DocProvider {
             id: masterGRPCDoc.iD.toInt(),
             abbreviation: masterGRPCDoc.abbreviation,
             docName: masterGRPCDoc.docName,
-            title: masterGRPCDoc.title);
+            header: masterGRPCDoc.header);
         result.add(doc);
       }
       return result;

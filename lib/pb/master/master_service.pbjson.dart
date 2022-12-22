@@ -22,12 +22,12 @@ const Doc$json = const {
     const {'1': 'ID', '3': 1, '4': 1, '5': 4, '10': 'ID'},
     const {'1': 'DocName', '3': 2, '4': 1, '5': 9, '10': 'DocName'},
     const {'1': 'Abbreviation', '3': 3, '4': 1, '5': 9, '10': 'Abbreviation'},
-    const {'1': 'Title', '3': 4, '4': 1, '5': 9, '10': 'Title'},
+    const {'1': 'Header', '3': 4, '4': 1, '5': 9, '10': 'Header'},
   ],
 };
 
 /// Descriptor for `Doc`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List docDescriptor = $convert.base64Decode('CgNEb2MSDgoCSUQYASABKARSAklEEhgKB0RvY05hbWUYAiABKAlSB0RvY05hbWUSIgoMQWJicmV2aWF0aW9uGAMgASgJUgxBYmJyZXZpYXRpb24SFAoFVGl0bGUYBCABKAlSBVRpdGxl');
+final $typed_data.Uint8List docDescriptor = $convert.base64Decode('CgNEb2MSDgoCSUQYASABKARSAklEEhgKB0RvY05hbWUYAiABKAlSB0RvY05hbWUSIgoMQWJicmV2aWF0aW9uGAMgASgJUgxBYmJyZXZpYXRpb24SFgoGSGVhZGVyGAQgASgJUgZIZWFkZXI=');
 @$core.Deprecated('Use getAllDocsResponseDescriptor instead')
 const GetAllDocsResponse$json = const {
   '1': 'GetAllDocsResponse',
@@ -38,6 +38,32 @@ const GetAllDocsResponse$json = const {
 
 /// Descriptor for `GetAllDocsResponse`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List getAllDocsResponseDescriptor = $convert.base64Decode('ChJHZXRBbGxEb2NzUmVzcG9uc2USIgoERG9jcxgBIAMoCzIOLm1hc3Rlci52MS5Eb2NSBERvY3M=');
+@$core.Deprecated('Use createDocRequestDescriptor instead')
+const CreateDocRequest$json = const {
+  '1': 'CreateDocRequest',
+  '2': const [
+    const {'1': 'PseudoId', '3': 1, '4': 1, '5': 9, '10': 'PseudoId'},
+    const {'1': 'DocName', '3': 2, '4': 1, '5': 9, '10': 'DocName'},
+    const {'1': 'Abbreviation', '3': 3, '4': 1, '5': 9, '10': 'Abbreviation'},
+    const {'1': 'Header', '3': 4, '4': 1, '5': 9, '10': 'Header'},
+    const {'1': 'Title', '3': 5, '4': 1, '5': 9, '10': 'Title'},
+    const {'1': 'Description', '3': 6, '4': 1, '5': 9, '10': 'Description'},
+    const {'1': 'Keywords', '3': 7, '4': 1, '5': 9, '10': 'Keywords'},
+  ],
+};
+
+/// Descriptor for `CreateDocRequest`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List createDocRequestDescriptor = $convert.base64Decode('ChBDcmVhdGVEb2NSZXF1ZXN0EhoKCFBzZXVkb0lkGAEgASgJUghQc2V1ZG9JZBIYCgdEb2NOYW1lGAIgASgJUgdEb2NOYW1lEiIKDEFiYnJldmlhdGlvbhgDIAEoCVIMQWJicmV2aWF0aW9uEhYKBkhlYWRlchgEIAEoCVIGSGVhZGVyEhQKBVRpdGxlGAUgASgJUgVUaXRsZRIgCgtEZXNjcmlwdGlvbhgGIAEoCVILRGVzY3JpcHRpb24SGgoIS2V5d29yZHMYByABKAlSCEtleXdvcmRz');
+@$core.Deprecated('Use createDocResponseDescriptor instead')
+const CreateDocResponse$json = const {
+  '1': 'CreateDocResponse',
+  '2': const [
+    const {'1': 'ID', '3': 1, '4': 1, '5': 4, '10': 'ID'},
+  ],
+};
+
+/// Descriptor for `CreateDocResponse`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List createDocResponseDescriptor = $convert.base64Decode('ChFDcmVhdGVEb2NSZXNwb25zZRIOCgJJRBgBIAEoBFICSUQ=');
 @$core.Deprecated('Use createChapterRequestDescriptor instead')
 const CreateChapterRequest$json = const {
   '1': 'CreateChapterRequest',
@@ -47,11 +73,14 @@ const CreateChapterRequest$json = const {
     const {'1': 'ChapterName', '3': 3, '4': 1, '5': 9, '10': 'ChapterName'},
     const {'1': 'ChapterNum', '3': 4, '4': 1, '5': 9, '10': 'ChapterNum'},
     const {'1': 'OrderNum', '3': 5, '4': 1, '5': 13, '10': 'OrderNum'},
+    const {'1': 'Title', '3': 6, '4': 1, '5': 9, '10': 'Title'},
+    const {'1': 'Description', '3': 7, '4': 1, '5': 9, '10': 'Description'},
+    const {'1': 'Keywords', '3': 8, '4': 1, '5': 9, '10': 'Keywords'},
   ],
 };
 
 /// Descriptor for `CreateChapterRequest`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List createChapterRequestDescriptor = $convert.base64Decode('ChRDcmVhdGVDaGFwdGVyUmVxdWVzdBIaCghQc2V1ZG9JZBgBIAEoCVIIUHNldWRvSWQSFAoFRG9jSWQYAiABKARSBURvY0lkEiAKC0NoYXB0ZXJOYW1lGAMgASgJUgtDaGFwdGVyTmFtZRIeCgpDaGFwdGVyTnVtGAQgASgJUgpDaGFwdGVyTnVtEhoKCE9yZGVyTnVtGAUgASgNUghPcmRlck51bQ==');
+final $typed_data.Uint8List createChapterRequestDescriptor = $convert.base64Decode('ChRDcmVhdGVDaGFwdGVyUmVxdWVzdBIaCghQc2V1ZG9JZBgBIAEoCVIIUHNldWRvSWQSFAoFRG9jSWQYAiABKARSBURvY0lkEiAKC0NoYXB0ZXJOYW1lGAMgASgJUgtDaGFwdGVyTmFtZRIeCgpDaGFwdGVyTnVtGAQgASgJUgpDaGFwdGVyTnVtEhoKCE9yZGVyTnVtGAUgASgNUghPcmRlck51bRIUCgVUaXRsZRgGIAEoCVIFVGl0bGUSIAoLRGVzY3JpcHRpb24YByABKAlSC0Rlc2NyaXB0aW9uEhoKCEtleXdvcmRzGAggASgJUghLZXl3b3Jkcw==');
 @$core.Deprecated('Use createChapterResponseDescriptor instead')
 const CreateChapterResponse$json = const {
   '1': 'CreateChapterResponse',
@@ -89,29 +118,6 @@ const CreateParagraphsRequest$json = const {
 
 /// Descriptor for `CreateParagraphsRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List createParagraphsRequestDescriptor = $convert.base64Decode('ChdDcmVhdGVQYXJhZ3JhcGhzUmVxdWVzdBI0CgpwYXJhZ3JhcGhzGAEgAygLMhQubWFzdGVyLnYxLlBhcmFncmFwaFIKcGFyYWdyYXBocw==');
-@$core.Deprecated('Use createDocRequestDescriptor instead')
-const CreateDocRequest$json = const {
-  '1': 'CreateDocRequest',
-  '2': const [
-    const {'1': 'PseudoId', '3': 1, '4': 1, '5': 9, '10': 'PseudoId'},
-    const {'1': 'DocName', '3': 2, '4': 1, '5': 9, '10': 'DocName'},
-    const {'1': 'Abbreviation', '3': 3, '4': 1, '5': 9, '10': 'Abbreviation'},
-    const {'1': 'Title', '3': 4, '4': 1, '5': 9, '10': 'Title'},
-  ],
-};
-
-/// Descriptor for `CreateDocRequest`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List createDocRequestDescriptor = $convert.base64Decode('ChBDcmVhdGVEb2NSZXF1ZXN0EhoKCFBzZXVkb0lkGAEgASgJUghQc2V1ZG9JZBIYCgdEb2NOYW1lGAIgASgJUgdEb2NOYW1lEiIKDEFiYnJldmlhdGlvbhgDIAEoCVIMQWJicmV2aWF0aW9uEhQKBVRpdGxlGAQgASgJUgVUaXRsZQ==');
-@$core.Deprecated('Use createDocResponseDescriptor instead')
-const CreateDocResponse$json = const {
-  '1': 'CreateDocResponse',
-  '2': const [
-    const {'1': 'ID', '3': 1, '4': 1, '5': 4, '10': 'ID'},
-  ],
-};
-
-/// Descriptor for `CreateDocResponse`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List createDocResponseDescriptor = $convert.base64Decode('ChFDcmVhdGVEb2NSZXNwb25zZRIOCgJJRBgBIAEoBFICSUQ=');
 @$core.Deprecated('Use updateLinksRequestDescriptor instead')
 const UpdateLinksRequest$json = const {
   '1': 'UpdateLinksRequest',

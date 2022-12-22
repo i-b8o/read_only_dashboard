@@ -44,7 +44,7 @@ class Doc extends $pb.GeneratedMessage {
     ..a<$fixnum.Int64>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'ID', $pb.PbFieldType.OU6, protoName: 'ID', defaultOrMaker: $fixnum.Int64.ZERO)
     ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'DocName', protoName: 'DocName')
     ..aOS(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'Abbreviation', protoName: 'Abbreviation')
-    ..aOS(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'Title', protoName: 'Title')
+    ..aOS(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'Header', protoName: 'Header')
     ..hasRequiredFields = false
   ;
 
@@ -53,7 +53,7 @@ class Doc extends $pb.GeneratedMessage {
     $fixnum.Int64? iD,
     $core.String? docName,
     $core.String? abbreviation,
-    $core.String? title,
+    $core.String? header,
   }) {
     final _result = create();
     if (iD != null) {
@@ -65,8 +65,8 @@ class Doc extends $pb.GeneratedMessage {
     if (abbreviation != null) {
       _result.abbreviation = abbreviation;
     }
-    if (title != null) {
-      _result.title = title;
+    if (header != null) {
+      _result.header = header;
     }
     return _result;
   }
@@ -119,13 +119,13 @@ class Doc extends $pb.GeneratedMessage {
   void clearAbbreviation() => clearField(3);
 
   @$pb.TagNumber(4)
-  $core.String get title => $_getSZ(3);
+  $core.String get header => $_getSZ(3);
   @$pb.TagNumber(4)
-  set title($core.String v) { $_setString(3, v); }
+  set header($core.String v) { $_setString(3, v); }
   @$pb.TagNumber(4)
-  $core.bool hasTitle() => $_has(3);
+  $core.bool hasHeader() => $_has(3);
   @$pb.TagNumber(4)
-  void clearTitle() => clearField(4);
+  void clearHeader() => clearField(4);
 }
 
 class GetAllDocsResponse extends $pb.GeneratedMessage {
@@ -169,6 +169,184 @@ class GetAllDocsResponse extends $pb.GeneratedMessage {
   $core.List<Doc> get docs => $_getList(0);
 }
 
+class CreateDocRequest extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'CreateDocRequest', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'master.v1'), createEmptyInstance: create)
+    ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'PseudoId', protoName: 'PseudoId')
+    ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'DocName', protoName: 'DocName')
+    ..aOS(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'Abbreviation', protoName: 'Abbreviation')
+    ..aOS(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'Header', protoName: 'Header')
+    ..aOS(5, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'Title', protoName: 'Title')
+    ..aOS(6, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'Description', protoName: 'Description')
+    ..aOS(7, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'Keywords', protoName: 'Keywords')
+    ..hasRequiredFields = false
+  ;
+
+  CreateDocRequest._() : super();
+  factory CreateDocRequest({
+    $core.String? pseudoId,
+    $core.String? docName,
+    $core.String? abbreviation,
+    $core.String? header,
+    $core.String? title,
+    $core.String? description,
+    $core.String? keywords,
+  }) {
+    final _result = create();
+    if (pseudoId != null) {
+      _result.pseudoId = pseudoId;
+    }
+    if (docName != null) {
+      _result.docName = docName;
+    }
+    if (abbreviation != null) {
+      _result.abbreviation = abbreviation;
+    }
+    if (header != null) {
+      _result.header = header;
+    }
+    if (title != null) {
+      _result.title = title;
+    }
+    if (description != null) {
+      _result.description = description;
+    }
+    if (keywords != null) {
+      _result.keywords = keywords;
+    }
+    return _result;
+  }
+  factory CreateDocRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory CreateDocRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  CreateDocRequest clone() => CreateDocRequest()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  CreateDocRequest copyWith(void Function(CreateDocRequest) updates) => super.copyWith((message) => updates(message as CreateDocRequest)) as CreateDocRequest; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static CreateDocRequest create() => CreateDocRequest._();
+  CreateDocRequest createEmptyInstance() => create();
+  static $pb.PbList<CreateDocRequest> createRepeated() => $pb.PbList<CreateDocRequest>();
+  @$core.pragma('dart2js:noInline')
+  static CreateDocRequest getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<CreateDocRequest>(create);
+  static CreateDocRequest? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get pseudoId => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set pseudoId($core.String v) { $_setString(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasPseudoId() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearPseudoId() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.String get docName => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set docName($core.String v) { $_setString(1, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasDocName() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearDocName() => clearField(2);
+
+  @$pb.TagNumber(3)
+  $core.String get abbreviation => $_getSZ(2);
+  @$pb.TagNumber(3)
+  set abbreviation($core.String v) { $_setString(2, v); }
+  @$pb.TagNumber(3)
+  $core.bool hasAbbreviation() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearAbbreviation() => clearField(3);
+
+  @$pb.TagNumber(4)
+  $core.String get header => $_getSZ(3);
+  @$pb.TagNumber(4)
+  set header($core.String v) { $_setString(3, v); }
+  @$pb.TagNumber(4)
+  $core.bool hasHeader() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearHeader() => clearField(4);
+
+  @$pb.TagNumber(5)
+  $core.String get title => $_getSZ(4);
+  @$pb.TagNumber(5)
+  set title($core.String v) { $_setString(4, v); }
+  @$pb.TagNumber(5)
+  $core.bool hasTitle() => $_has(4);
+  @$pb.TagNumber(5)
+  void clearTitle() => clearField(5);
+
+  @$pb.TagNumber(6)
+  $core.String get description => $_getSZ(5);
+  @$pb.TagNumber(6)
+  set description($core.String v) { $_setString(5, v); }
+  @$pb.TagNumber(6)
+  $core.bool hasDescription() => $_has(5);
+  @$pb.TagNumber(6)
+  void clearDescription() => clearField(6);
+
+  @$pb.TagNumber(7)
+  $core.String get keywords => $_getSZ(6);
+  @$pb.TagNumber(7)
+  set keywords($core.String v) { $_setString(6, v); }
+  @$pb.TagNumber(7)
+  $core.bool hasKeywords() => $_has(6);
+  @$pb.TagNumber(7)
+  void clearKeywords() => clearField(7);
+}
+
+class CreateDocResponse extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'CreateDocResponse', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'master.v1'), createEmptyInstance: create)
+    ..a<$fixnum.Int64>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'ID', $pb.PbFieldType.OU6, protoName: 'ID', defaultOrMaker: $fixnum.Int64.ZERO)
+    ..hasRequiredFields = false
+  ;
+
+  CreateDocResponse._() : super();
+  factory CreateDocResponse({
+    $fixnum.Int64? iD,
+  }) {
+    final _result = create();
+    if (iD != null) {
+      _result.iD = iD;
+    }
+    return _result;
+  }
+  factory CreateDocResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory CreateDocResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  CreateDocResponse clone() => CreateDocResponse()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  CreateDocResponse copyWith(void Function(CreateDocResponse) updates) => super.copyWith((message) => updates(message as CreateDocResponse)) as CreateDocResponse; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static CreateDocResponse create() => CreateDocResponse._();
+  CreateDocResponse createEmptyInstance() => create();
+  static $pb.PbList<CreateDocResponse> createRepeated() => $pb.PbList<CreateDocResponse>();
+  @$core.pragma('dart2js:noInline')
+  static CreateDocResponse getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<CreateDocResponse>(create);
+  static CreateDocResponse? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $fixnum.Int64 get iD => $_getI64(0);
+  @$pb.TagNumber(1)
+  set iD($fixnum.Int64 v) { $_setInt64(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasID() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearID() => clearField(1);
+}
+
 class CreateChapterRequest extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'CreateChapterRequest', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'master.v1'), createEmptyInstance: create)
     ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'PseudoId', protoName: 'PseudoId')
@@ -176,6 +354,9 @@ class CreateChapterRequest extends $pb.GeneratedMessage {
     ..aOS(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'ChapterName', protoName: 'ChapterName')
     ..aOS(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'ChapterNum', protoName: 'ChapterNum')
     ..a<$core.int>(5, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'OrderNum', $pb.PbFieldType.OU3, protoName: 'OrderNum')
+    ..aOS(6, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'Title', protoName: 'Title')
+    ..aOS(7, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'Description', protoName: 'Description')
+    ..aOS(8, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'Keywords', protoName: 'Keywords')
     ..hasRequiredFields = false
   ;
 
@@ -186,6 +367,9 @@ class CreateChapterRequest extends $pb.GeneratedMessage {
     $core.String? chapterName,
     $core.String? chapterNum,
     $core.int? orderNum,
+    $core.String? title,
+    $core.String? description,
+    $core.String? keywords,
   }) {
     final _result = create();
     if (pseudoId != null) {
@@ -202,6 +386,15 @@ class CreateChapterRequest extends $pb.GeneratedMessage {
     }
     if (orderNum != null) {
       _result.orderNum = orderNum;
+    }
+    if (title != null) {
+      _result.title = title;
+    }
+    if (description != null) {
+      _result.description = description;
+    }
+    if (keywords != null) {
+      _result.keywords = keywords;
     }
     return _result;
   }
@@ -270,6 +463,33 @@ class CreateChapterRequest extends $pb.GeneratedMessage {
   $core.bool hasOrderNum() => $_has(4);
   @$pb.TagNumber(5)
   void clearOrderNum() => clearField(5);
+
+  @$pb.TagNumber(6)
+  $core.String get title => $_getSZ(5);
+  @$pb.TagNumber(6)
+  set title($core.String v) { $_setString(5, v); }
+  @$pb.TagNumber(6)
+  $core.bool hasTitle() => $_has(5);
+  @$pb.TagNumber(6)
+  void clearTitle() => clearField(6);
+
+  @$pb.TagNumber(7)
+  $core.String get description => $_getSZ(6);
+  @$pb.TagNumber(7)
+  set description($core.String v) { $_setString(6, v); }
+  @$pb.TagNumber(7)
+  $core.bool hasDescription() => $_has(6);
+  @$pb.TagNumber(7)
+  void clearDescription() => clearField(7);
+
+  @$pb.TagNumber(8)
+  $core.String get keywords => $_getSZ(7);
+  @$pb.TagNumber(8)
+  set keywords($core.String v) { $_setString(7, v); }
+  @$pb.TagNumber(8)
+  $core.bool hasKeywords() => $_has(7);
+  @$pb.TagNumber(8)
+  void clearKeywords() => clearField(8);
 }
 
 class CreateChapterResponse extends $pb.GeneratedMessage {
@@ -503,142 +723,6 @@ class CreateParagraphsRequest extends $pb.GeneratedMessage {
 
   @$pb.TagNumber(1)
   $core.List<Paragraph> get paragraphs => $_getList(0);
-}
-
-class CreateDocRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'CreateDocRequest', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'master.v1'), createEmptyInstance: create)
-    ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'PseudoId', protoName: 'PseudoId')
-    ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'DocName', protoName: 'DocName')
-    ..aOS(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'Abbreviation', protoName: 'Abbreviation')
-    ..aOS(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'Title', protoName: 'Title')
-    ..hasRequiredFields = false
-  ;
-
-  CreateDocRequest._() : super();
-  factory CreateDocRequest({
-    $core.String? pseudoId,
-    $core.String? docName,
-    $core.String? abbreviation,
-    $core.String? title,
-  }) {
-    final _result = create();
-    if (pseudoId != null) {
-      _result.pseudoId = pseudoId;
-    }
-    if (docName != null) {
-      _result.docName = docName;
-    }
-    if (abbreviation != null) {
-      _result.abbreviation = abbreviation;
-    }
-    if (title != null) {
-      _result.title = title;
-    }
-    return _result;
-  }
-  factory CreateDocRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory CreateDocRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
-  'Will be removed in next major version')
-  CreateDocRequest clone() => CreateDocRequest()..mergeFromMessage(this);
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
-  'Will be removed in next major version')
-  CreateDocRequest copyWith(void Function(CreateDocRequest) updates) => super.copyWith((message) => updates(message as CreateDocRequest)) as CreateDocRequest; // ignore: deprecated_member_use
-  $pb.BuilderInfo get info_ => _i;
-  @$core.pragma('dart2js:noInline')
-  static CreateDocRequest create() => CreateDocRequest._();
-  CreateDocRequest createEmptyInstance() => create();
-  static $pb.PbList<CreateDocRequest> createRepeated() => $pb.PbList<CreateDocRequest>();
-  @$core.pragma('dart2js:noInline')
-  static CreateDocRequest getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<CreateDocRequest>(create);
-  static CreateDocRequest? _defaultInstance;
-
-  @$pb.TagNumber(1)
-  $core.String get pseudoId => $_getSZ(0);
-  @$pb.TagNumber(1)
-  set pseudoId($core.String v) { $_setString(0, v); }
-  @$pb.TagNumber(1)
-  $core.bool hasPseudoId() => $_has(0);
-  @$pb.TagNumber(1)
-  void clearPseudoId() => clearField(1);
-
-  @$pb.TagNumber(2)
-  $core.String get docName => $_getSZ(1);
-  @$pb.TagNumber(2)
-  set docName($core.String v) { $_setString(1, v); }
-  @$pb.TagNumber(2)
-  $core.bool hasDocName() => $_has(1);
-  @$pb.TagNumber(2)
-  void clearDocName() => clearField(2);
-
-  @$pb.TagNumber(3)
-  $core.String get abbreviation => $_getSZ(2);
-  @$pb.TagNumber(3)
-  set abbreviation($core.String v) { $_setString(2, v); }
-  @$pb.TagNumber(3)
-  $core.bool hasAbbreviation() => $_has(2);
-  @$pb.TagNumber(3)
-  void clearAbbreviation() => clearField(3);
-
-  @$pb.TagNumber(4)
-  $core.String get title => $_getSZ(3);
-  @$pb.TagNumber(4)
-  set title($core.String v) { $_setString(3, v); }
-  @$pb.TagNumber(4)
-  $core.bool hasTitle() => $_has(3);
-  @$pb.TagNumber(4)
-  void clearTitle() => clearField(4);
-}
-
-class CreateDocResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'CreateDocResponse', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'master.v1'), createEmptyInstance: create)
-    ..a<$fixnum.Int64>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'ID', $pb.PbFieldType.OU6, protoName: 'ID', defaultOrMaker: $fixnum.Int64.ZERO)
-    ..hasRequiredFields = false
-  ;
-
-  CreateDocResponse._() : super();
-  factory CreateDocResponse({
-    $fixnum.Int64? iD,
-  }) {
-    final _result = create();
-    if (iD != null) {
-      _result.iD = iD;
-    }
-    return _result;
-  }
-  factory CreateDocResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory CreateDocResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
-  'Will be removed in next major version')
-  CreateDocResponse clone() => CreateDocResponse()..mergeFromMessage(this);
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
-  'Will be removed in next major version')
-  CreateDocResponse copyWith(void Function(CreateDocResponse) updates) => super.copyWith((message) => updates(message as CreateDocResponse)) as CreateDocResponse; // ignore: deprecated_member_use
-  $pb.BuilderInfo get info_ => _i;
-  @$core.pragma('dart2js:noInline')
-  static CreateDocResponse create() => CreateDocResponse._();
-  CreateDocResponse createEmptyInstance() => create();
-  static $pb.PbList<CreateDocResponse> createRepeated() => $pb.PbList<CreateDocResponse>();
-  @$core.pragma('dart2js:noInline')
-  static CreateDocResponse getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<CreateDocResponse>(create);
-  static CreateDocResponse? _defaultInstance;
-
-  @$pb.TagNumber(1)
-  $fixnum.Int64 get iD => $_getI64(0);
-  @$pb.TagNumber(1)
-  set iD($fixnum.Int64 v) { $_setInt64(0, v); }
-  @$pb.TagNumber(1)
-  $core.bool hasID() => $_has(0);
-  @$pb.TagNumber(1)
-  void clearID() => clearField(1);
 }
 
 class UpdateLinksRequest extends $pb.GeneratedMessage {
