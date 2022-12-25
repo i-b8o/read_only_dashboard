@@ -14,6 +14,10 @@ import 'master_service.pb.dart' as $0;
 export 'master_service.pb.dart';
 
 class MasterDocGRPCClient extends $grpc.Client {
+  static final _$exist = $grpc.ClientMethod<$0.ExistRequest, $0.ExistResponse>(
+      '/master.v1.MasterDocGRPC/Exist',
+      ($0.ExistRequest value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $0.ExistResponse.fromBuffer(value));
   static final _$create =
       $grpc.ClientMethod<$0.CreateDocRequest, $0.CreateDocResponse>(
           '/master.v1.MasterDocGRPC/Create',
@@ -46,6 +50,11 @@ class MasterDocGRPCClient extends $grpc.Client {
       $core.Iterable<$grpc.ClientInterceptor>? interceptors})
       : super(channel, options: options, interceptors: interceptors);
 
+  $grpc.ResponseFuture<$0.ExistResponse> exist($0.ExistRequest request,
+      {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$exist, request, options: options);
+  }
+
   $grpc.ResponseFuture<$0.CreateDocResponse> create($0.CreateDocRequest request,
       {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$create, request, options: options);
@@ -77,6 +86,13 @@ abstract class MasterDocGRPCServiceBase extends $grpc.Service {
   $core.String get $name => 'master.v1.MasterDocGRPC';
 
   MasterDocGRPCServiceBase() {
+    $addMethod($grpc.ServiceMethod<$0.ExistRequest, $0.ExistResponse>(
+        'Exist',
+        exist_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $0.ExistRequest.fromBuffer(value),
+        ($0.ExistResponse value) => value.writeToBuffer()));
     $addMethod($grpc.ServiceMethod<$0.CreateDocRequest, $0.CreateDocResponse>(
         'Create',
         create_Pre,
@@ -116,6 +132,11 @@ abstract class MasterDocGRPCServiceBase extends $grpc.Service {
         ($0.GetAbsentsResponse value) => value.writeToBuffer()));
   }
 
+  $async.Future<$0.ExistResponse> exist_Pre(
+      $grpc.ServiceCall call, $async.Future<$0.ExistRequest> request) async {
+    return exist(call, await request);
+  }
+
   $async.Future<$0.CreateDocResponse> create_Pre($grpc.ServiceCall call,
       $async.Future<$0.CreateDocRequest> request) async {
     return create(call, await request);
@@ -141,6 +162,8 @@ abstract class MasterDocGRPCServiceBase extends $grpc.Service {
     return getAbsents(call, await request);
   }
 
+  $async.Future<$0.ExistResponse> exist(
+      $grpc.ServiceCall call, $0.ExistRequest request);
   $async.Future<$0.CreateDocResponse> create(
       $grpc.ServiceCall call, $0.CreateDocRequest request);
   $async.Future<$0.GetAllDocsResponse> getAll(

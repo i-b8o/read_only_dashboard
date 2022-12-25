@@ -15,6 +15,26 @@ const Empty$json = const {
 
 /// Descriptor for `Empty`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List emptyDescriptor = $convert.base64Decode('CgVFbXB0eQ==');
+@$core.Deprecated('Use existRequestDescriptor instead')
+const ExistRequest$json = const {
+  '1': 'ExistRequest',
+  '2': const [
+    const {'1': 'pseudo_id', '3': 1, '4': 1, '5': 9, '10': 'pseudoId'},
+  ],
+};
+
+/// Descriptor for `ExistRequest`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List existRequestDescriptor = $convert.base64Decode('CgxFeGlzdFJlcXVlc3QSGwoJcHNldWRvX2lkGAEgASgJUghwc2V1ZG9JZA==');
+@$core.Deprecated('Use existResponseDescriptor instead')
+const ExistResponse$json = const {
+  '1': 'ExistResponse',
+  '2': const [
+    const {'1': 'exist', '3': 1, '4': 1, '5': 8, '10': 'exist'},
+  ],
+};
+
+/// Descriptor for `ExistResponse`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List existResponseDescriptor = $convert.base64Decode('Cg1FeGlzdFJlc3BvbnNlEhQKBWV4aXN0GAEgASgIUgVleGlzdA==');
 @$core.Deprecated('Use docDescriptor instead')
 const Doc$json = const {
   '1': 'Doc',

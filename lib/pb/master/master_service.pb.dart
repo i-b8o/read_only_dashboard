@@ -39,6 +39,100 @@ class Empty extends $pb.GeneratedMessage {
   static Empty? _defaultInstance;
 }
 
+class ExistRequest extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'ExistRequest', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'master.v1'), createEmptyInstance: create)
+    ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'pseudoId')
+    ..hasRequiredFields = false
+  ;
+
+  ExistRequest._() : super();
+  factory ExistRequest({
+    $core.String? pseudoId,
+  }) {
+    final _result = create();
+    if (pseudoId != null) {
+      _result.pseudoId = pseudoId;
+    }
+    return _result;
+  }
+  factory ExistRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory ExistRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  ExistRequest clone() => ExistRequest()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  ExistRequest copyWith(void Function(ExistRequest) updates) => super.copyWith((message) => updates(message as ExistRequest)) as ExistRequest; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static ExistRequest create() => ExistRequest._();
+  ExistRequest createEmptyInstance() => create();
+  static $pb.PbList<ExistRequest> createRepeated() => $pb.PbList<ExistRequest>();
+  @$core.pragma('dart2js:noInline')
+  static ExistRequest getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<ExistRequest>(create);
+  static ExistRequest? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get pseudoId => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set pseudoId($core.String v) { $_setString(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasPseudoId() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearPseudoId() => clearField(1);
+}
+
+class ExistResponse extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'ExistResponse', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'master.v1'), createEmptyInstance: create)
+    ..aOB(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'exist')
+    ..hasRequiredFields = false
+  ;
+
+  ExistResponse._() : super();
+  factory ExistResponse({
+    $core.bool? exist,
+  }) {
+    final _result = create();
+    if (exist != null) {
+      _result.exist = exist;
+    }
+    return _result;
+  }
+  factory ExistResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory ExistResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  ExistResponse clone() => ExistResponse()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  ExistResponse copyWith(void Function(ExistResponse) updates) => super.copyWith((message) => updates(message as ExistResponse)) as ExistResponse; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static ExistResponse create() => ExistResponse._();
+  ExistResponse createEmptyInstance() => create();
+  static $pb.PbList<ExistResponse> createRepeated() => $pb.PbList<ExistResponse>();
+  @$core.pragma('dart2js:noInline')
+  static ExistResponse getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<ExistResponse>(create);
+  static ExistResponse? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.bool get exist => $_getBF(0);
+  @$pb.TagNumber(1)
+  set exist($core.bool v) { $_setBool(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasExist() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearExist() => clearField(1);
+}
+
 class Doc extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'Doc', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'master.v1'), createEmptyInstance: create)
     ..a<$fixnum.Int64>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'ID', $pb.PbFieldType.OU6, protoName: 'ID', defaultOrMaker: $fixnum.Int64.ZERO)
