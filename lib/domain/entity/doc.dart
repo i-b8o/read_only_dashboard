@@ -1,13 +1,10 @@
 class Doc {
   final int id;
   final String docName;
-  final String abbreviation;
-  final String header;
-  Doc(
-      {required this.id,
-      required this.docName,
-      required this.abbreviation,
-      required this.header});
+  Doc({
+    required this.id,
+    required this.docName,
+  });
   Doc copyWith({
     int? id,
     String? docName,
@@ -15,9 +12,8 @@ class Doc {
     String? title,
   }) {
     return Doc(
-        id: id ?? this.id,
-        docName: docName ?? this.docName,
-        abbreviation: abbreviation ?? this.abbreviation,
-        header: title ?? this.header);
+      id: id ?? this.id,
+      docName: docName ?? this.docName,
+    );
   }
 }

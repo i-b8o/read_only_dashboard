@@ -42,12 +42,11 @@ const Doc$json = const {
     const {'1': 'ID', '3': 1, '4': 1, '5': 4, '10': 'ID'},
     const {'1': 'DocName', '3': 2, '4': 1, '5': 9, '10': 'DocName'},
     const {'1': 'Abbreviation', '3': 3, '4': 1, '5': 9, '10': 'Abbreviation'},
-    const {'1': 'Header', '3': 4, '4': 1, '5': 9, '10': 'Header'},
   ],
 };
 
 /// Descriptor for `Doc`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List docDescriptor = $convert.base64Decode('CgNEb2MSDgoCSUQYASABKARSAklEEhgKB0RvY05hbWUYAiABKAlSB0RvY05hbWUSIgoMQWJicmV2aWF0aW9uGAMgASgJUgxBYmJyZXZpYXRpb24SFgoGSGVhZGVyGAQgASgJUgZIZWFkZXI=');
+final $typed_data.Uint8List docDescriptor = $convert.base64Decode('CgNEb2MSDgoCSUQYASABKARSAklEEhgKB0RvY05hbWUYAiABKAlSB0RvY05hbWUSIgoMQWJicmV2aWF0aW9uGAMgASgJUgxBYmJyZXZpYXRpb24=');
 @$core.Deprecated('Use getAllDocsResponseDescriptor instead')
 const GetAllDocsResponse$json = const {
   '1': 'GetAllDocsResponse',
@@ -64,16 +63,17 @@ const CreateDocRequest$json = const {
   '2': const [
     const {'1': 'PseudoId', '3': 1, '4': 1, '5': 9, '10': 'PseudoId'},
     const {'1': 'DocName', '3': 2, '4': 1, '5': 9, '10': 'DocName'},
-    const {'1': 'Abbreviation', '3': 3, '4': 1, '5': 9, '10': 'Abbreviation'},
-    const {'1': 'Header', '3': 4, '4': 1, '5': 9, '10': 'Header'},
-    const {'1': 'Title', '3': 5, '4': 1, '5': 9, '10': 'Title'},
-    const {'1': 'Description', '3': 6, '4': 1, '5': 9, '10': 'Description'},
-    const {'1': 'Keywords', '3': 7, '4': 1, '5': 9, '10': 'Keywords'},
+    const {'1': 'Type', '3': 3, '4': 1, '5': 9, '10': 'Type'},
+    const {'1': 'SubType', '3': 4, '4': 1, '5': 9, '10': 'SubType'},
+    const {'1': 'Rev', '3': 5, '4': 1, '5': 9, '10': 'Rev'},
+    const {'1': 'Title', '3': 6, '4': 1, '5': 9, '10': 'Title'},
+    const {'1': 'Description', '3': 7, '4': 1, '5': 9, '10': 'Description'},
+    const {'1': 'Keywords', '3': 8, '4': 1, '5': 9, '10': 'Keywords'},
   ],
 };
 
 /// Descriptor for `CreateDocRequest`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List createDocRequestDescriptor = $convert.base64Decode('ChBDcmVhdGVEb2NSZXF1ZXN0EhoKCFBzZXVkb0lkGAEgASgJUghQc2V1ZG9JZBIYCgdEb2NOYW1lGAIgASgJUgdEb2NOYW1lEiIKDEFiYnJldmlhdGlvbhgDIAEoCVIMQWJicmV2aWF0aW9uEhYKBkhlYWRlchgEIAEoCVIGSGVhZGVyEhQKBVRpdGxlGAUgASgJUgVUaXRsZRIgCgtEZXNjcmlwdGlvbhgGIAEoCVILRGVzY3JpcHRpb24SGgoIS2V5d29yZHMYByABKAlSCEtleXdvcmRz');
+final $typed_data.Uint8List createDocRequestDescriptor = $convert.base64Decode('ChBDcmVhdGVEb2NSZXF1ZXN0EhoKCFBzZXVkb0lkGAEgASgJUghQc2V1ZG9JZBIYCgdEb2NOYW1lGAIgASgJUgdEb2NOYW1lEhIKBFR5cGUYAyABKAlSBFR5cGUSGAoHU3ViVHlwZRgEIAEoCVIHU3ViVHlwZRIQCgNSZXYYBSABKAlSA1JldhIUCgVUaXRsZRgGIAEoCVIFVGl0bGUSIAoLRGVzY3JpcHRpb24YByABKAlSC0Rlc2NyaXB0aW9uEhoKCEtleXdvcmRzGAggASgJUghLZXl3b3Jkcw==');
 @$core.Deprecated('Use createDocResponseDescriptor instead')
 const CreateDocResponse$json = const {
   '1': 'CreateDocResponse',

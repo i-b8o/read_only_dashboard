@@ -116,14 +116,14 @@ class _DataTable extends StatelessWidget {
       rows: docs
           .map((e) => DataRow(
                 cells: [
-                  DataCell(
-                    Text(e.abbreviation),
+                  const DataCell(
+                    Text("e.abbreviation"),
                   ),
                   DataCell(
                     Text(e.docName),
                   ),
-                  DataCell(
-                    Text(e.header),
+                  const DataCell(
+                    Text("e.header"),
                   ),
                   DataCell(
                     _RemoveBtn(id: e.id),

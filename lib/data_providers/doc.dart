@@ -35,10 +35,9 @@ class DocProvider {
       for (var i = 0; i < resp.docs.length; i++) {
         master_grpc_service.Doc masterGRPCDoc = resp.docs[i];
         Doc doc = Doc(
-            id: masterGRPCDoc.iD.toInt(),
-            abbreviation: masterGRPCDoc.abbreviation,
-            docName: masterGRPCDoc.docName,
-            header: masterGRPCDoc.header);
+          id: masterGRPCDoc.iD.toInt(),
+          docName: masterGRPCDoc.docName,
+        );
         result.add(doc);
       }
       return result;
