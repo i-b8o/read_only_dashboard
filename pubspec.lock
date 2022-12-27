@@ -158,10 +158,10 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.1.5"
-  description:
+  meta:
     dependency: transitive
     description:
-      name: description
+      name: meta
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.8.0"
