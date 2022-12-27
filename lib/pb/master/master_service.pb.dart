@@ -137,7 +137,6 @@ class Doc extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'Doc', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'master.v1'), createEmptyInstance: create)
     ..a<$fixnum.Int64>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'ID', $pb.PbFieldType.OU6, protoName: 'ID', defaultOrMaker: $fixnum.Int64.ZERO)
     ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'DocName', protoName: 'DocName')
-    ..aOS(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'Abbreviation', protoName: 'Abbreviation')
     ..hasRequiredFields = false
   ;
 
@@ -145,7 +144,6 @@ class Doc extends $pb.GeneratedMessage {
   factory Doc({
     $fixnum.Int64? iD,
     $core.String? docName,
-    $core.String? abbreviation,
   }) {
     final _result = create();
     if (iD != null) {
@@ -153,9 +151,6 @@ class Doc extends $pb.GeneratedMessage {
     }
     if (docName != null) {
       _result.docName = docName;
-    }
-    if (abbreviation != null) {
-      _result.abbreviation = abbreviation;
     }
     return _result;
   }
@@ -197,15 +192,6 @@ class Doc extends $pb.GeneratedMessage {
   $core.bool hasDocName() => $_has(1);
   @$pb.TagNumber(2)
   void clearDocName() => clearField(2);
-
-  @$pb.TagNumber(3)
-  $core.String get abbreviation => $_getSZ(2);
-  @$pb.TagNumber(3)
-  set abbreviation($core.String v) { $_setString(2, v); }
-  @$pb.TagNumber(3)
-  $core.bool hasAbbreviation() => $_has(2);
-  @$pb.TagNumber(3)
-  void clearAbbreviation() => clearField(3);
 }
 
 class GetAllDocsResponse extends $pb.GeneratedMessage {
@@ -253,12 +239,13 @@ class CreateDocRequest extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'CreateDocRequest', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'master.v1'), createEmptyInstance: create)
     ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'PseudoId', protoName: 'PseudoId')
     ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'DocName', protoName: 'DocName')
-    ..aOS(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'Type', protoName: 'Type')
-    ..aOS(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'SubType', protoName: 'SubType')
-    ..aOS(5, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'Rev', protoName: 'Rev')
-    ..aOS(6, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'Title', protoName: 'Title')
-    ..aOS(7, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'Description', protoName: 'Description')
-    ..aOS(8, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'Keywords', protoName: 'Keywords')
+    ..aOS(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'Header', protoName: 'Header')
+    ..aOS(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'Type', protoName: 'Type')
+    ..aOS(5, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'SubType', protoName: 'SubType')
+    ..aOS(6, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'Rev', protoName: 'Rev')
+    ..aOS(7, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'Title', protoName: 'Title')
+    ..aOS(8, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'Description', protoName: 'Description')
+    ..aOS(9, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'Keywords', protoName: 'Keywords')
     ..hasRequiredFields = false
   ;
 
@@ -266,6 +253,7 @@ class CreateDocRequest extends $pb.GeneratedMessage {
   factory CreateDocRequest({
     $core.String? pseudoId,
     $core.String? docName,
+    $core.String? header,
     $core.String? type,
     $core.String? subType,
     $core.String? rev,
@@ -279,6 +267,9 @@ class CreateDocRequest extends $pb.GeneratedMessage {
     }
     if (docName != null) {
       _result.docName = docName;
+    }
+    if (header != null) {
+      _result.header = header;
     }
     if (type != null) {
       _result.type = type;
@@ -340,58 +331,67 @@ class CreateDocRequest extends $pb.GeneratedMessage {
   void clearDocName() => clearField(2);
 
   @$pb.TagNumber(3)
-  $core.String get type => $_getSZ(2);
+  $core.String get header => $_getSZ(2);
   @$pb.TagNumber(3)
-  set type($core.String v) { $_setString(2, v); }
+  set header($core.String v) { $_setString(2, v); }
   @$pb.TagNumber(3)
-  $core.bool hasType() => $_has(2);
+  $core.bool hasHeader() => $_has(2);
   @$pb.TagNumber(3)
-  void clearType() => clearField(3);
+  void clearHeader() => clearField(3);
 
   @$pb.TagNumber(4)
-  $core.String get subType => $_getSZ(3);
+  $core.String get type => $_getSZ(3);
   @$pb.TagNumber(4)
-  set subType($core.String v) { $_setString(3, v); }
+  set type($core.String v) { $_setString(3, v); }
   @$pb.TagNumber(4)
-  $core.bool hasSubType() => $_has(3);
+  $core.bool hasType() => $_has(3);
   @$pb.TagNumber(4)
-  void clearSubType() => clearField(4);
+  void clearType() => clearField(4);
 
   @$pb.TagNumber(5)
-  $core.String get rev => $_getSZ(4);
+  $core.String get subType => $_getSZ(4);
   @$pb.TagNumber(5)
-  set rev($core.String v) { $_setString(4, v); }
+  set subType($core.String v) { $_setString(4, v); }
   @$pb.TagNumber(5)
-  $core.bool hasRev() => $_has(4);
+  $core.bool hasSubType() => $_has(4);
   @$pb.TagNumber(5)
-  void clearRev() => clearField(5);
+  void clearSubType() => clearField(5);
 
   @$pb.TagNumber(6)
-  $core.String get title => $_getSZ(5);
+  $core.String get rev => $_getSZ(5);
   @$pb.TagNumber(6)
-  set title($core.String v) { $_setString(5, v); }
+  set rev($core.String v) { $_setString(5, v); }
   @$pb.TagNumber(6)
-  $core.bool hasTitle() => $_has(5);
+  $core.bool hasRev() => $_has(5);
   @$pb.TagNumber(6)
-  void clearTitle() => clearField(6);
+  void clearRev() => clearField(6);
 
   @$pb.TagNumber(7)
-  $core.String get description => $_getSZ(6);
+  $core.String get title => $_getSZ(6);
   @$pb.TagNumber(7)
-  set description($core.String v) { $_setString(6, v); }
+  set title($core.String v) { $_setString(6, v); }
   @$pb.TagNumber(7)
-  $core.bool hasDescription() => $_has(6);
+  $core.bool hasTitle() => $_has(6);
   @$pb.TagNumber(7)
-  void clearDescription() => clearField(7);
+  void clearTitle() => clearField(7);
 
   @$pb.TagNumber(8)
-  $core.String get keywords => $_getSZ(7);
+  $core.String get description => $_getSZ(7);
   @$pb.TagNumber(8)
-  set keywords($core.String v) { $_setString(7, v); }
+  set description($core.String v) { $_setString(7, v); }
   @$pb.TagNumber(8)
-  $core.bool hasKeywords() => $_has(7);
+  $core.bool hasDescription() => $_has(7);
   @$pb.TagNumber(8)
-  void clearKeywords() => clearField(8);
+  void clearDescription() => clearField(8);
+
+  @$pb.TagNumber(9)
+  $core.String get keywords => $_getSZ(8);
+  @$pb.TagNumber(9)
+  set keywords($core.String v) { $_setString(8, v); }
+  @$pb.TagNumber(9)
+  $core.bool hasKeywords() => $_has(8);
+  @$pb.TagNumber(9)
+  void clearKeywords() => clearField(9);
 }
 
 class CreateDocResponse extends $pb.GeneratedMessage {
