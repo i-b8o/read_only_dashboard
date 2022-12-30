@@ -3,7 +3,7 @@
 //  source: master/master_service.proto
 //
 // @dart = 2.12
-// ignore_for_file: annotate_overrides,camel_case_types,unnecessary_const,non_constant_identifier_names,library_prefixes,unused_import,unused_shown_name,return_of_invalid_type,unnecessary_this,prefer_final_fields
+// ignore_for_file: annotate_overrides,camel_case_types,constant_identifier_names,directives_ordering,library_prefixes,non_constant_identifier_names,prefer_final_fields,return_of_invalid_type,unnecessary_const,unnecessary_import,unnecessary_this,unused_import,unused_shown_name
 
 import 'dart:core' as $core;
 
@@ -1345,16 +1345,21 @@ class GetAbsentsResponse extends $pb.GeneratedMessage {
 class GetOneParagraphRequest extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'GetOneParagraphRequest', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'master.v1'), createEmptyInstance: create)
     ..a<$fixnum.Int64>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'ID', $pb.PbFieldType.OU6, protoName: 'ID', defaultOrMaker: $fixnum.Int64.ZERO)
+    ..a<$fixnum.Int64>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'ChapterID', $pb.PbFieldType.OU6, protoName: 'ChapterID', defaultOrMaker: $fixnum.Int64.ZERO)
     ..hasRequiredFields = false
   ;
 
   GetOneParagraphRequest._() : super();
   factory GetOneParagraphRequest({
     $fixnum.Int64? iD,
+    $fixnum.Int64? chapterID,
   }) {
     final _result = create();
     if (iD != null) {
       _result.iD = iD;
+    }
+    if (chapterID != null) {
+      _result.chapterID = chapterID;
     }
     return _result;
   }
@@ -1387,6 +1392,15 @@ class GetOneParagraphRequest extends $pb.GeneratedMessage {
   $core.bool hasID() => $_has(0);
   @$pb.TagNumber(1)
   void clearID() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $fixnum.Int64 get chapterID => $_getI64(1);
+  @$pb.TagNumber(2)
+  set chapterID($fixnum.Int64 v) { $_setInt64(1, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasChapterID() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearChapterID() => clearField(2);
 }
 
 class GetOneParagraphResponse extends $pb.GeneratedMessage {
