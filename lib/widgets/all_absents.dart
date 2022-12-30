@@ -137,7 +137,13 @@ class _DataTable extends StatelessWidget {
                     Text('${e.done}'),
                   ),
                   DataCell(
-                    Text('${e.paragraphId}'),
+                    GestureDetector(
+                        onDoubleTap: () async {
+                          await Clipboard.setData(
+                              ClipboardData(text: '${e.paragraphId}'));
+                          // copied successfully
+                        },
+                        child: Text('${e.paragraphId}')),
                   ),
                 ],
               ))

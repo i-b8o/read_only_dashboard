@@ -1218,6 +1218,7 @@ class MasterAbsent extends $pb.GeneratedMessage {
     ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'Pseudo', protoName: 'Pseudo')
     ..aOB(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'Done', protoName: 'Done')
     ..a<$fixnum.Int64>(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'ParagraphId', $pb.PbFieldType.OU6, protoName: 'Paragraph_id', defaultOrMaker: $fixnum.Int64.ZERO)
+    ..a<$fixnum.Int64>(5, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'ChapterId', $pb.PbFieldType.OU6, protoName: 'Chapter_id', defaultOrMaker: $fixnum.Int64.ZERO)
     ..hasRequiredFields = false
   ;
 
@@ -1227,6 +1228,7 @@ class MasterAbsent extends $pb.GeneratedMessage {
     $core.String? pseudo,
     $core.bool? done,
     $fixnum.Int64? paragraphId,
+    $fixnum.Int64? chapterId,
   }) {
     final _result = create();
     if (iD != null) {
@@ -1240,6 +1242,9 @@ class MasterAbsent extends $pb.GeneratedMessage {
     }
     if (paragraphId != null) {
       _result.paragraphId = paragraphId;
+    }
+    if (chapterId != null) {
+      _result.chapterId = chapterId;
     }
     return _result;
   }
@@ -1299,6 +1304,15 @@ class MasterAbsent extends $pb.GeneratedMessage {
   $core.bool hasParagraphId() => $_has(3);
   @$pb.TagNumber(4)
   void clearParagraphId() => clearField(4);
+
+  @$pb.TagNumber(5)
+  $fixnum.Int64 get chapterId => $_getI64(4);
+  @$pb.TagNumber(5)
+  set chapterId($fixnum.Int64 v) { $_setInt64(4, v); }
+  @$pb.TagNumber(5)
+  $core.bool hasChapterId() => $_has(4);
+  @$pb.TagNumber(5)
+  void clearChapterId() => clearField(5);
 }
 
 class GetAbsentsResponse extends $pb.GeneratedMessage {

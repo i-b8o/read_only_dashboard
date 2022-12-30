@@ -221,11 +221,12 @@ const MasterAbsent$json = const {
     const {'1': 'Pseudo', '3': 2, '4': 1, '5': 9, '10': 'Pseudo'},
     const {'1': 'Done', '3': 3, '4': 1, '5': 8, '10': 'Done'},
     const {'1': 'Paragraph_id', '3': 4, '4': 1, '5': 4, '10': 'ParagraphId'},
+    const {'1': 'Chapter_id', '3': 5, '4': 1, '5': 4, '10': 'ChapterId'},
   ],
 };
 
 /// Descriptor for `MasterAbsent`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List masterAbsentDescriptor = $convert.base64Decode('CgxNYXN0ZXJBYnNlbnQSDgoCSUQYASABKARSAklEEhYKBlBzZXVkbxgCIAEoCVIGUHNldWRvEhIKBERvbmUYAyABKAhSBERvbmUSIQoMUGFyYWdyYXBoX2lkGAQgASgEUgtQYXJhZ3JhcGhJZA==');
+final $typed_data.Uint8List masterAbsentDescriptor = $convert.base64Decode('CgxNYXN0ZXJBYnNlbnQSDgoCSUQYASABKARSAklEEhYKBlBzZXVkbxgCIAEoCVIGUHNldWRvEhIKBERvbmUYAyABKAhSBERvbmUSIQoMUGFyYWdyYXBoX2lkGAQgASgEUgtQYXJhZ3JhcGhJZBIdCgpDaGFwdGVyX2lkGAUgASgEUglDaGFwdGVySWQ=');
 @$core.Deprecated('Use getAbsentsResponseDescriptor instead')
 const GetAbsentsResponse$json = const {
   '1': 'GetAbsentsResponse',

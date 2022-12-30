@@ -101,13 +101,7 @@ class _DataTable extends StatelessWidget {
     return DataTable(
       columns: const [
         DataColumn(
-            label: Text('Аббревиатура',
-                style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold))),
-        DataColumn(
             label: Text('Название',
-                style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold))),
-        DataColumn(
-            label: Text('Заголовок',
                 style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold))),
         DataColumn(
             label: Text('Удалить',
@@ -116,14 +110,8 @@ class _DataTable extends StatelessWidget {
       rows: docs
           .map((e) => DataRow(
                 cells: [
-                  const DataCell(
-                    Text("e.abbreviation"),
-                  ),
                   DataCell(
                     Text(e.docName),
-                  ),
-                  const DataCell(
-                    Text("e.header"),
                   ),
                   DataCell(
                     _RemoveBtn(id: e.id),
