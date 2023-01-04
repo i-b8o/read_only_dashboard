@@ -62,6 +62,7 @@ class DocProvider {
             id: masterGRPCAbsent.iD.toInt(),
             pseudo: masterGRPCAbsent.pseudo,
             done: masterGRPCAbsent.done,
+            chapterId: masterGRPCAbsent.chapterId.toInt(),
             paragraphId: masterGRPCAbsent.paragraphId.toInt());
         result.add(absent);
       }

@@ -13,11 +13,13 @@ class ParagraphProviderError {}
 class ParagraphProvider {
   final masterClient = MasterClient();
 
-  Future<ParagraphData?> get(int id) async {
+  Future<ParagraphData?> get(int id, chapterID) async {
     try {
       Int64 id64 = Int64(id);
+      Int64 chapterId64 = Int64(chapterID);
       final GetOneParagraphResponse resp = await masterClient.paragraphStub
-          .getOne(master_grpc_service.GetOneParagraphRequest(iD: id64));
+          .getOne(master_grpc_service.GetOneParagraphRequest(
+              iD: id64, chapterID: chapterId64));
       if (resp.content.isEmpty) {
         return null;
       }
@@ -31,11 +33,12 @@ class ParagraphProvider {
     }
   }
 
-  Future<void> update(int id, String content) async {
+  Future<void> update(int id, chapterID, String content) async {
     try {
       Int64 id64 = Int64(id);
-      final UpdateParagraphRequest req =
-          UpdateParagraphRequest(iD: id64, content: content);
+      Int64 chapterId64 = Int64(chapterID);
+      final UpdateParagraphRequest req = UpdateParagraphRequest(
+          iD: id64, chapterID: chapterId64, content: content);
       await masterClient.paragraphStub.update(req);
     } catch (e) {
       throw ParagraphProviderError();

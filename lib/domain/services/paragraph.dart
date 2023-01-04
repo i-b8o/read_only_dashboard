@@ -7,12 +7,11 @@ class ParagraphService {
   ParagraphData? _paragraph;
   ParagraphData? get paragraph => _paragraph;
 
-  Future<void> loadParagraph(int id) async {
-    _paragraph = await _paragraphDataProvider.get(id);
+  Future<void> loadParagraph(int id, chapterID) async {
+    _paragraph = await _paragraphDataProvider.get(id, chapterID);
   }
 
-
-  Future<void> updateContent(int id, String content) async {
-    await _paragraphDataProvider.update(id, content);
+  Future<void> updateContent(int id, chapterID, String content) async {
+    await _paragraphDataProvider.update(id, chapterID, content);
   }
 }

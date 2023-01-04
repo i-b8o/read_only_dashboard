@@ -6,6 +6,7 @@ import 'package:read_only_dashboard/widgets/error.dart';
 class _ViewModelState {
   String errorTitle = '';
   int? id;
+  int? chapterID;
   String oldParagraphContent;
   String? newParagraphContent;
   _ViewModelState({required this.id, required this.oldParagraphContent});
@@ -24,11 +25,11 @@ class _ViewModel extends ChangeNotifier {
   }
 
   void _loadParagraph() async {
-    if (_state.id == null) {
+    if (_state.id == null || _state.chapterID == null) {
       _state.errorTitle = "ошибка";
       notifyListeners();
     }
-    await _paragraphService.loadParagraph(_state.id!);
+    await _paragraphService.loadParagraph(_state.id!, _state.chapterID);
     final paragraph = _paragraphService.paragraph;
 
     if (paragraph == null) {
@@ -45,7 +46,7 @@ class _ViewModel extends ChangeNotifier {
       notifyListeners();
     }
     await _paragraphService.updateContent(
-        _state.id!, _state.newParagraphContent!);
+        _state.id!, _state.chapterID, _state.newParagraphContent!);
     _loadParagraph();
   }
 
@@ -53,6 +54,13 @@ class _ViewModel extends ChangeNotifier {
     int? idInt = int.tryParse(id);
     if (_state.id == idInt) return;
     _state.id = idInt;
+    notifyListeners();
+  }
+
+  void setChapterID(String id) async {
+    int? idInt = int.tryParse(id);
+    if (_state.chapterID == idInt) return;
+    _state.chapterID = idInt;
     notifyListeners();
   }
 
@@ -131,10 +139,19 @@ class _IdInputRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final model = context.read<_ViewModel>();
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       mainAxisSize: MainAxisSize.min,
-      children: const [_InputWidget(), _FetchBtn()],
+      children: [
+        _InputWidget(
+            labelText: "paragraph ID",
+            onChanged: (value) => model.setID(value)),
+        _InputWidget(
+            labelText: "chapter ID",
+            onChanged: (value) => model.setChapterID(value)),
+        const _FetchBtn()
+      ],
     );
   }
 }
@@ -182,19 +199,21 @@ class _FetchBtn extends StatelessWidget {
 }
 
 class _InputWidget extends StatelessWidget {
-  const _InputWidget({Key? key}) : super(key: key);
-
+  const _InputWidget(
+      {Key? key, required this.labelText, required this.onChanged})
+      : super(key: key);
+  final String labelText;
+  final void Function(String)? onChanged;
   @override
   Widget build(BuildContext context) {
-    final model = context.read<_ViewModel>();
     return SizedBox(
       width: MediaQuery.of(context).size.width * 0.2,
       child: TextField(
-        decoration: const InputDecoration(
-          labelText: 'Параграф ID',
-          border: OutlineInputBorder(),
+        decoration: InputDecoration(
+          labelText: labelText,
+          border: const OutlineInputBorder(),
         ),
-        onChanged: (value) => model.setID(value),
+        onChanged: onChanged,
       ),
     );
   }
