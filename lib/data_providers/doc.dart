@@ -42,7 +42,6 @@ class DocProvider {
       }
       return result;
     } catch (e) {
-      print(e);
       throw DocProviderError();
     }
   }

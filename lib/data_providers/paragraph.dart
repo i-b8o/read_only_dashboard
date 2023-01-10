@@ -28,7 +28,6 @@ class ParagraphProvider {
           ParagraphData(id: id, content: resp.content);
       return paragraphData;
     } catch (e) {
-      print(e);
       throw ParagraphProviderError();
     }
   }
